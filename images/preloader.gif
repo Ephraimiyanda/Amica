@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+
+
+    <head>
+        <meta charset="UTF-8">
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="manifest" href="/assets/images/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+                <script>
+                    var homeUrl = '/';
+                </script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                 <script src="https://www.google.com/recaptcha/api.js?render=6Lejb_obAAAAAB16eJ16eP9ZH27LBZg0bx__XwZN"></script>
+               
+				                <title>Cost Estimation &amp; Budgeting</title>       
+                				
+				<!-- INCLUDES -->
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cairo:wght@200;300;400;600;700;900&display=swap"
+        rel="stylesheet">
+
+                <meta name="keywords" content="Cost Estimation &amp; Budgeting">
+<meta name="description" content="Cost Estimation &amp; Budgeting">
+
+<link href="/assets/css/app.css" rel="stylesheet">
+<link href="/assets/css/style.css" rel="stylesheet">                </head>
+
+                <body>
+                      <div class="loader">
+        <img src="/assets/images/loader.gif" class="img-fluid" alt="">
+    </div>
+                                             <div class="fixed_right">
+        <a target="_blank" href="tel: +971 (2) 6737766">
+            <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                    id="Capa_1" x="0px" y="0px" viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;"
+                    xml:space="preserve">
+                    <path
+                        d="M353.188,252.052c-23.51,0-46.594-3.677-68.469-10.906c-10.719-3.656-23.896-0.302-30.438,6.417l-43.177,32.594    c-50.073-26.729-80.917-57.563-107.281-107.26l31.635-42.052c8.219-8.208,11.167-20.198,7.635-31.448    c-7.26-21.99-10.948-45.063-10.948-68.583C132.146,13.823,118.323,0,101.333,0H30.813C13.823,0,0,13.823,0,30.813    C0,225.563,158.438,384,353.188,384c16.99,0,30.813-13.823,30.813-30.813v-70.323C384,265.875,370.177,252.052,353.188,252.052z" />
+                </svg>
+            </div>
+        </a>
+        <a target="_blank" href="tel: +919995495051">
+            <div class="icon">
+                <svg viewBox="0 0 184 184">
+                    <path
+                        d="M160.746,24.61H23.254C10.432,24.61,0,35.042,0,47.864v88.271c0,12.822,10.432,23.254,23.254,23.254
+                        h137.492c12.822,0,23.254-10.432,23.254-23.254V47.864C184,35.042,173.568,24.61,160.746,24.61z M157.113,39.61L92,89.909
+                        L26.887,39.61H157.113z M160.746,144.39H23.254c-4.551,0-8.254-3.703-8.254-8.254V49.382l72.415,55.94
+                        c1.35,1.043,2.968,1.564,4.585,1.564s3.235-0.521,4.585-1.564L169,49.382v86.753C169,140.687,165.297,144.39,160.746,144.39z" />
+                </svg>
+
+            </div>
+        </a>
+
+    </div>
+                    <header id="Header">
+        <div class="topHeader">
+            <div class="container">
+                <div class="top_bar">
+                    <div class="logHolder">
+                        <a href="/" class="logSec">
+                            <img src="/assets/images/h_logo.png" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="rit_box">
+                        <div class="contact">
+                            <a href="tel: +971 (2) 6737766" class="call">
+                                <svg viewBox="0 0 384 384">
+                                    <path
+                                        d="M353.188,252.052c-23.51,0-46.594-3.677-68.469-10.906c-10.719-3.656-23.896-0.302-30.438,6.417l-43.177,32.594
+                                        c-50.073-26.729-80.917-57.563-107.281-107.26l31.635-42.052c8.219-8.208,11.167-20.198,7.635-31.448
+                                        c-7.26-21.99-10.948-45.063-10.948-68.583C132.146,13.823,118.323,0,101.333,0H30.813C13.823,0,0,13.823,0,30.813
+                                        C0,225.563,158.438,384,353.188,384c16.99,0,30.813-13.823,30.813-30.813v-70.323C384,265.875,370.177,252.052,353.188,252.052z" />
+                                </svg>
+                                <div class="t_bx">
+                                    <span> Call now</span><br>
+                                     +971 (2) 6737766                                </div>
+                            </a>
+                            <a href="mailto: info@eqec.ae" class="mail">
+                                <svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M467,76H45C20.137,76,0,96.262,0,121v270c0,24.885,20.285,45,45,45h422c24.655,0,45-20.03,45-45V121
+                                        C512,96.306,491.943,76,467,76z M460.698,106c-9.194,9.145-167.415,166.533-172.878,171.967c-8.5,8.5-19.8,13.18-31.82,13.18
+                                        s-23.32-4.681-31.848-13.208C220.478,274.284,64.003,118.634,51.302,106H460.698z M30,384.894V127.125L159.638,256.08L30,384.894z
+                                        M51.321,406l129.587-128.763l22.059,21.943c14.166,14.166,33,21.967,53.033,21.967c20.033,0,38.867-7.801,53.005-21.939
+                                        l22.087-21.971L460.679,406H51.321z M482,384.894L352.362,256.08L482,127.125V384.894z" />
+                                </svg>
+
+                                <div class="t_bx">
+                                    <span>Send Mail</span><br>
+                                    info@eqec.ae                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#!" class="search">
+                        <input type="text" placeholder="Start searching" spellcheck="false" class='text-field'>
+                        <svg viewBox="0 0 512 512">
+                            <path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474
+                                                c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323
+                                                c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848
+                                                S326.847,409.323,225.474,409.323z" />
+                            <path
+                                d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328
+			                                c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z" />
+                        </svg>
+                    </a>
+                    <div class="menu_icon">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#header_pop">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mainHeader">
+            <div class="container">
+                <div class="flex_box">
+                     <a href="/" class="logSec">
+                            <img src="/assets/images/h_logo.png" alt="Logo">
+                        </a>
+                    <div class="modal fade" id="header_pop" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <ul class="navbar-nav">
+                                        <li
+                                            class="nav-list ">
+                                            <a class="link" href="/">Home</a>
+                                        </li>
+										                                       <li
+                                            class="nav-list ">
+                                            <a class="link" href="/about/who-we-are">About Us</a>
+                                        </li>
+									
+                                         <li
+                                            class="nav-list dropdown  ">
+                                            <a class="link dropdown-toggle" href="/sectors/hydrocarbon-exploration-development"> Sectors</a>
+                                            <a class="link mob_drp" data-bs-toggle="dropdown"
+                                                id="dropdownMenuLink" aria-expanded="false"></a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <div class="container">
+                                                    <ul>
+													                                                        <li><a href="/sectors/hydrocarbon-exploration-development">Hydrocarbon Exploration & Development</a></li>
+                                                                                                                <li><a href="/sectors/gas-processing">Gas Processing</a></li>
+                                                                                                                <li><a href="/sectors/refineries">Refineries</a></li>
+                                                                                                                <li><a href="/sectors/petrochemicals">Petrochemicals</a></li>
+                                                                                                                <li><a href="/sectors/cng-city-gas-distribution">CNG & City Gas Distribution</a></li>
+                                                                                                                <li><a href="/sectors/power-generation-distribution">Power Generation & Distribution</a></li>
+                                                                                                                <li><a href="/sectors/pipeline-transportation-gas-oil-refinery-products">Pipeline Transportation (Gas / Oil / Refinery Products)</a></li>
+                                                                                                                <li><a href="/sectors/others-interior-decoration-design-supply-build">Others — Interior Decoration (Design /Supply / Build)</a></li>
+                                                                                                            </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                       
+                                        <li
+                                            class="nav-list dropdown  active">
+                                            <a class="link dropdown-toggle" href="/services/screening-feasibility-conceptual-studies"> Services</a>
+                                            <a class="link mob_drp" data-bs-toggle="dropdown"
+                                                id="dropdownMenuLink" aria-expanded="false"></a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <div class="container">
+                                                    <ul>
+													                                                        <li><a href="/services/screening-feasibility-conceptual-studies">Screening / Feasibility / Conceptual Studies</a></li>
+                                                                                                                <li><a href="/services/basic-engineering-bed-pre-feed-studies">Basic Engineering (BED) / Pre-FEED Studies</a></li>
+                                                                                                                <li><a href="/services/front-end-engineering-design-feed">Front End Engineering & Design (FEED)</a></li>
+                                                                                                                <li><a href="/services/pre-bid-engineering-services-epc-tender-stage">Pre-bid Engineering Services (EPC Tender Stage)</a></li>
+                                                                                                                <li><a href="/services/detail-engineering-residual-engineering-epc-stage">Detail Engineering / Residual Engineering (EPC Stage)</a></li>
+                                                                                                                <li><a href="/services/process-engineering-studies-pre-feed-feed-epc-stages">Process Engineering Studies (Pre-FEED / FEED /EPC Stages)</a></li>
+                                                                                                                <li><a href="/services/project-management-consultancy-services-pmc-services">Project Management & Consultancy Services (PMC Services)</a></li>
+                                                                                                                <li><a href="/services/corporate-governance-strategic-advisory-services">Corporate Governance & Strategic Advisory Services</a></li>
+                                                                                                                <li><a href="/services/cost-estimation-budgeting">Cost Estimation & Budgeting</a></li>
+                                                                                                                <li><a href="/services/interior-decoration-design-supply-build">Interior Decoration (Design / Supply / Build)</a></li>
+                                                                                                            </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li
+                                            class="nav-list  ||  ">
+                                            <a class="link" href="/projects"> Projects </a>
+                                        </li>
+                                        <li
+                                            class="nav-list  || ">
+                                            <a class="link" href="/news-and-events">News & Events</a>
+                                        </li>
+                                        <li
+                                            class="nav-list  || ">
+                                            <a class="link" href="/careers">Careers</a>
+                                        </li>
+                                        <li
+                                            class="nav-list ">
+                                            <a class="link" href="/contact">Contact us</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                       <form method="get" class="search product-search-box" action="/site/result">
+                            <div class="ot_bx">
+                                <input type="search" required="" class="search-keyword" name="keyword" placeholder="Search" value=""
+                                drop="search-key">
+                            <div class="search-keyword-dropdown search-key"></div>
+                                <button class="search">
+                                    <svg viewBox="0 0 512 512">
+                                        <path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474
+                                                c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323
+                                                c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848
+                                                S326.847,409.323,225.474,409.323z" />
+                                        <path
+                                            d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328
+			                                c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z" />
+                                    </svg>
+
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+                    <!--header-->
+					<div id="viewport">
+                    <div id="p0" data-pjax-container="" data-pjax-push-state data-pjax-timeout="1000"><div id="pageWrapper" class="service_page">
+    <section id="pageBanner">
+        <img alt="image" src="/images/service/banner_image11.jpg" />
+        <div class="bannerStrip">
+            <div class="container">
+                <div class="main_title">Our Services</div>
+            </div>
+        </div>
+    </section>
+    <section id="service_sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="outer_bx">
+                        <div class="about_box">
+    <div class="title">Our<span> Services</span></div>
+    <ul>
+	        <li><a href="/services/screening-feasibility-conceptual-studies"
+                class="s_link "><span>Screening / Feasibility / Conceptual Studies                    </span></a></li>
+                <li><a href="/services/basic-engineering-bed-pre-feed-studies"
+                class="s_link "><span>Basic Engineering (BED) / Pre-FEED Studies                    </span></a></li>
+                <li><a href="/services/front-end-engineering-design-feed"
+                class="s_link "><span>Front End Engineering & Design (FEED)                    </span></a></li>
+                <li><a href="/services/pre-bid-engineering-services-epc-tender-stage"
+                class="s_link "><span>Pre-bid Engineering Services (EPC Tender Stage)                    </span></a></li>
+                <li><a href="/services/detail-engineering-residual-engineering-epc-stage"
+                class="s_link "><span>Detail Engineering / Residual Engineering (EPC Stage)                    </span></a></li>
+                <li><a href="/services/process-engineering-studies-pre-feed-feed-epc-stages"
+                class="s_link "><span>Process Engineering Studies (Pre-FEED / FEED /EPC Stages)                    </span></a></li>
+                <li><a href="/services/project-management-consultancy-services-pmc-services"
+                class="s_link "><span>Project Management & Consultancy Services (PMC Services)                    </span></a></li>
+                <li><a href="/services/corporate-governance-strategic-advisory-services"
+                class="s_link "><span>Corporate Governance & Strategic Advisory Services                    </span></a></li>
+                <li><a href="/services/cost-estimation-budgeting"
+                class="s_link active"><span>Cost Estimation & Budgeting                    </span></a></li>
+                <li><a href="/services/interior-decoration-design-supply-build"
+                class="s_link "><span>Interior Decoration (Design / Supply / Build)                    </span></a></li>
+            </ul>
+</div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="accordion_box">
+                        <div class="head">Cost Estimation & Budgeting</div>
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+						
+												
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-heading1">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse1" aria-expanded="false"
+                                        aria-controls="flush-collapse1">
+                                       SECTORS                                    </button>
+                                </h2>
+								                                <div id="flush-collapse1" class="accordion-collapse collapse "
+                                    aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                       <ul>
+	<li>Hydrocarbon Exploration &amp; Development</li>
+	<li>Gas Processing</li>
+	<li>Refineries</li>
+	<li>Petrochemicals</li>
+	<li>Power Generation &amp; Distribution</li>
+	<li>Rail Transportation (Bulk Materials)</li>
+	<li>Pipeline Transportation (Gas / Oil / Refinery Products)</li>
+	<li>Infrastructure Facilities</li>
+	<li>Others Interior Decoration (Design / Supply / Build)</li>
+</ul>
+                                    </div>
+                                </div>
+								                            </div>
+                            						
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-heading2">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse2" aria-expanded="false"
+                                        aria-controls="flush-collapse2">
+                                       TYPE OF PROJECTS                                    </button>
+                                </h2>
+								                                <div id="flush-collapse2" class="accordion-collapse collapse "
+                                    aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                       
+<ul>
+	<li>Green Field</li>
+	<li>Brown Field</li>
+</ul>
+                                    </div>
+                                </div>
+								                            </div>
+                            						
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-heading3">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse3" aria-expanded="false"
+                                        aria-controls="flush-collapse3">
+                                       PROJECT PHASE                                    </button>
+                                </h2>
+								                                <div id="flush-collapse3" class="accordion-collapse collapse "
+                                    aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                       
+<ul>
+	<li>Screening / Conceptual Studies</li>
+	<li>PRE-FEED Phase</li>
+	<li>FEED Phase</li>
+	<li>EPC Phase</li>
+</ul>
+                                    </div>
+                                </div>
+								                            </div>
+                            						
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-heading4">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse4" aria-expanded="false"
+                                        aria-controls="flush-collapse4">
+                                       Type of Estimates                                    </button>
+                                </h2>
+								                                <div id="flush-collapse4" class="accordion-collapse collapse "
+                                    aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                       
+<ul>
+	<li>Class -5&nbsp;(+/- 50%)&nbsp; -&nbsp; Screening Phase</li>
+	<li>Class -4&nbsp;(+/- 40%)&nbsp; -&nbsp; Conceptual Studies Phase</li>
+	<li>Class -3 (+/- 30%)&nbsp; -&nbsp;&nbsp;PRE-FEED Phase</li>
+	<li>Class - 2 (+/- 15%)&nbsp; -&nbsp;&nbsp;FEED Phase</li>
+	<li>Class -1 (+/- 5%)&nbsp; -&nbsp;&nbsp;EPC Phase</li>
+</ul>
+                                    </div>
+                                </div>
+								                            </div>
+                            						
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-heading5">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapse5" aria-expanded="false"
+                                        aria-controls="flush-collapse5">
+                                       OTHER SERVICES                                    </button>
+                                </h2>
+								                                <div id="flush-collapse5" class="accordion-collapse collapse "
+                                    aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                       
+<ul>
+	<li>Bidding Support</li>
+	<li>Quantity Survey/MTO / Preparation</li>
+	<li>3rd Party Verification of&nbsp;Estimates</li>
+	<li>Validation of Bids</li>
+	<li>Budgetory Quotations</li>
+</ul>
+                                    </div>
+                                </div>
+								                            </div>
+                                                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>                    <footer>
+    <section id="foot_sec">
+    <div class="bg_bx">
+        <img src="/images/common-contents/background_image.jpg" alt="">
+    </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="otr_bx fst">
+                        <!--<div class="logo_sec">-->
+                        <!--    <a href="/"><img src="/assets/images/h_logo.png" alt=""> </a>-->
+                        <!--</div>-->
+                         <div class="foot_head">Who We Are</div>
+                        <p>&ldquo;Equilibrium Engineering Consultancy (EEC)&rdquo; provides technical and strategic solutions to its customers for various minor &amp; major projects across a wide engineering spectrum, in the areas related to Hydrocarbon Exploration &amp; Production, Reservoir</p>
+                        <div class="img_box">
+                            <a href="#!">
+                                <img src="/images/common-contents/logo2.png" alt="">
+                            </a>
+                            <a href="#!">
+                                <img src="/images/common-contents/logo.png" alt="">
+                            </a>
+                            <a href="#!">
+                                <img src="/images/common-contents/logo3.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 ">
+                    <div class="otr_bx all_links">
+                        <div class="foot_head">QUICK LINKS</div>
+                        <ul>
+                            <li><a href="/" class="f_link">Home</a></li>
+														<li><a href="/about/who-we-are" class="f_link">About us</a></li>
+                           
+							<li><a href="/sectors/hydrocarbon-exploration-development" class="f_link">Sectors </a></li>
+                            
+							<li><a href="/services/screening-feasibility-conceptual-studies" class="f_link">Services</a></li>
+                            
+							<li><a href="/projects" class="f_link">Projects</a></li>
+                            <li><a href="/news-and-events" class="f_link">News & Events</a></li>
+                            <li><a href="/careers" class="f_link">Careers</a></li>
+                            <li><a href="/" class="f_link">Contact us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="otr_bx">
+                        <div class="foot_head">Our corporate office</div>
+                       <p>#505 / 506, Al Reem Plaza,<br />
+Zayed,The First Street,<br />
+P.O Box: 53338,<br />
+Abu Dhabi,<br />
+United Arab Emirates</p>
+                        <div class="cntct_bx">
+                            <a href="mailto:info@eqec.ae" class="mail"><span>E:</span> info@eqec.ae</a>
+                            <a href="tel:+971 (2) 6737766" class="fax"><span>F: </span> +971 (2) 6737766</a>
+                            <a href="tel:+971 (2) 6737766" class="call">
+                                <svg viewBox="0 0 32.666 32.666">
+                                    <path d="M28.189,16.504h-1.666c0-5.437-4.422-9.858-9.856-9.858l-0.001-1.664C23.021,4.979,28.189,10.149,28.189,16.504z
+                                        M16.666,7.856L16.665,9.52c3.853,0,6.983,3.133,6.981,6.983l1.666-0.001C25.312,11.735,21.436,7.856,16.666,7.856z M16.333,0
+                                        C7.326,0,0,7.326,0,16.334c0,9.006,7.326,16.332,16.333,16.332c0.557,0,1.007-0.45,1.007-1.006c0-0.559-0.45-1.01-1.007-1.01
+                                        c-7.896,0-14.318-6.424-14.318-14.316c0-7.896,6.422-14.319,14.318-14.319c7.896,0,14.317,6.424,14.317,14.319
+                                        c0,3.299-1.756,6.568-4.269,7.954c-0.913,0.502-1.903,0.751-2.959,0.761c0.634-0.377,1.183-0.887,1.591-1.529
+                                        c0.08-0.121,0.186-0.228,0.238-0.359c0.328-0.789,0.357-1.684,0.555-2.518c0.243-1.064-4.658-3.143-5.084-1.814
+                                        c-0.154,0.492-0.39,2.048-0.699,2.458c-0.275,0.366-0.953,0.192-1.377-0.168c-1.117-0.952-2.364-2.351-3.458-3.457l0.002-0.001
+                                        c-0.028-0.029-0.062-0.061-0.092-0.092c-0.031-0.029-0.062-0.062-0.093-0.092v0.002c-1.106-1.096-2.506-2.34-3.457-3.459
+                                        c-0.36-0.424-0.534-1.102-0.168-1.377c0.41-0.311,1.966-0.543,2.458-0.699c1.326-0.424-0.75-5.328-1.816-5.084
+                                        c-0.832,0.195-1.727,0.227-2.516,0.553c-0.134,0.057-0.238,0.16-0.359,0.24c-2.799,1.774-3.16,6.082-0.428,9.292
+                                        c1.041,1.228,2.127,2.416,3.245,3.576l-0.006,0.004c0.031,0.031,0.063,0.06,0.095,0.09c0.03,0.031,0.059,0.062,0.088,0.095
+                                        l0.006-0.006c1.16,1.118,2.535,2.765,4.769,4.255c4.703,3.141,8.312,2.264,10.438,1.098c3.67-2.021,5.312-6.338,5.312-9.719
+                                        C32.666,7.326,25.339,0,16.333,0z" />
+                                </svg>
+
+                                <div class="t_bx">
+                                    <span> Call now</span><br>
+                                    +971 (2) 6737766                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="otr_bx add">
+                        <div class="foot_head">Our branches</div>
+                       <p>Warsan Tower, 9th Floor<br />
+Barsha Heights<br />
+Dubai, UAE<br />
++971 4 58 47 905</p>
+                        <a href="tel:+971 4 58 47 905" class="call" target="_blank">Tel: +971 4 58 47 905</a>
+                        <a href="tel:+971 4 58 47 905" class="call" target="_blank">Fax: +971 4 58 47 905</a>
+                        <p>&nbsp;</p>
+                       <p>Al Reem Plaza Tower, 5th Floor<br />
+Zayad the First Street(Elactra Street)<br />
+Abu Dhabi, UAE<br />
+Barsha Heights - Dubai, UAE</p>
+                        <a href="tel:+971 2882 2998" class="call" target="_blank">Tel: +971 2882 2998</a>
+                        <a href="tel:+971 2673 7766" class="call" target="_blank">Fax: +971 2673 7766</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_sec">
+            <div class="container">
+                <div class="otr_box">
+                    <div class="copy_right">
+                        <p>Copyright © 2021 Equilibrium . All Rights Reserved.</p>
+                    </div>
+                    <div class="social_box">
+                    <div class="title">Follow  Us:</div>
+                        <ul>
+						                            <li>
+                                <a href="https://www.linkedin.com" target="_blank">
+                                    <svg id="f_linkedin" version="1.1" viewBox="0 0 21 20">
+                                        <path
+                                            d="M21.011,12.268 L21.011,20.002 L16.506,20.002 L16.506,12.785 C16.506,10.972 15.855,9.733 14.224,9.733 C12.979,9.733 12.238,10.569 11.912,11.376 C11.793,11.664 11.763,12.065 11.763,12.470 L11.763,20.002 L7.256,20.002 C7.256,20.002 7.317,7.778 7.256,6.512 L11.763,6.512 L11.763,8.425 C11.753,8.438 11.741,8.454 11.733,8.468 L11.763,8.468 L11.763,8.425 C12.361,7.507 13.430,6.195 15.824,6.195 C18.788,6.195 21.011,8.123 21.011,12.268 ZM2.542,0.010 C1.001,0.010 -0.008,1.015 -0.008,2.340 C-0.008,3.634 0.971,4.672 2.482,4.672 L2.513,4.672 C4.084,4.672 5.062,3.634 5.062,2.340 C5.032,1.015 4.084,0.010 2.542,0.010 ZM0.260,20.002 L4.765,20.002 L4.765,6.512 L0.260,6.512 L0.260,20.002 Z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </li>
+													                            <li>
+                                <a href="https://www.twitter.com" target="_blank">
+                                    <svg id="twitter" version="1.1" viewBox="0 0 512 512">
+                                        <path
+                                            d="M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016    c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992    c0,8.32,0.704,16.32,2.432,23.936c-87.264-4.256-164.48-46.08-216.352-109.792c-9.056,15.712-14.368,33.696-14.368,53.056    c0,36.352,18.72,68.576,46.624,87.232c-16.864-0.32-33.408-5.216-47.424-12.928c0,0.32,0,0.736,0,1.152    c0,51.008,36.384,93.376,84.096,103.136c-8.544,2.336-17.856,3.456-27.52,3.456c-6.72,0-13.504-0.384-19.872-1.792    c13.6,41.568,52.192,72.128,98.08,73.12c-35.712,27.936-81.056,44.768-130.144,44.768c-8.608,0-16.864-0.384-25.12-1.44    C46.496,446.88,101.6,464,161.024,464c193.152,0,298.752-160,298.752-298.688c0-4.64-0.16-9.12-0.384-13.568    C480.224,136.96,497.728,118.496,512,97.248z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </li>
+													                            <li>
+                                <a href="https://www.facebook.com/eqecae/" target="_blank">
+                                    <svg viewBox="0 0 24 24">
+                                        <path
+                                            d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-3.159 0-5.323 1.987-5.323 5.639v3.361h-3.486v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877v-2.939c.001-1.233.333-2.077 2.051-2.077z" />
+                                    </svg>
+                                </a>
+                            </li>
+                                                   </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+
+
+</div>
+<a href="#" class="scrollup"></a>
+
+                    <script src="/assets/ca9394a1/yii.js"></script>
+<script src="/assets/df380a27/jquery.pjax.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.3/dist/lazyload.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script src="/assets/js/app.js"></script>
+<script>jQuery(function ($) {
+jQuery(document).pjax("#p0 a", {"push":true,"replace":false,"timeout":1000,"scrollTo":false,"container":"#p0"});
+jQuery(document).off("submit", "#p0 form[data-pjax]").on("submit", "#p0 form[data-pjax]", function (event) {jQuery.pjax.submit(event, {"push":true,"replace":false,"timeout":1000,"scrollTo":false,"container":"#p0"});});
+});</script>                </body>
+                </html>
+                
+
+
+    <script>
+
+/************ Serach ****************/
+$('.search-keyword').on('keyup', function(e) {
+    var dropdown = $(this).attr('drop');
+    if ($(this).val()[0] === " ") {
+
+    } else {
+        if ($('.search-keyword').val().length > 1) {
+            if (e.keyCode != 40 && e.keyCode != 38 && e.keyCode != 27) {
+                $.ajax({
+                    url: homeUrl + 'site/search-keyword',
+                    type: "POST",
+                    data: {
+                        keyword: $(this).val()
+                    },
+                    success: function(data) {
+                        $('.' + dropdown).html(data);
+                        $('.' + dropdown).show();
+                    }
+                });
+            }
+        } else {
+            $('.' + dropdown).hide();
+        }
+    }
+});
+
+/********* selected li value to textbox **********/
+$(document).on('mousedown', '.search-dropdown li', function() {
+    $('.search-dropdown').hide();
+    $('.search-keyword').val($(this).attr('id'));
+    $('form.product-search-box').submit();
+});
+
+$('.search-keyword').on('keydown', function(e) {
+
+    if (e.keyCode == 40) { //down
+
+        var selected = $(".search-selected");
+        $('.search-dropdown li').removeClass('search-selected');
+        if (selected.next().length == 0) {
+
+            $('.search-dropdown li:first').addClass('search-selected');
+        } else {
+            selected.next().addClass('search-selected');
+        }
+    } else if (e.keyCode == 38) { //up
+
+        var selected = $(".search-selected");
+        $('.search-dropdown li').removeClass('search-selected');
+        if (selected.prev().length == 0) {
+            $('.search-dropdown li:last-child').addClass('search-selected');
+        } else {
+            selected.prev().addClass('search-selected');
+        }
+    } else if (e.keyCode == 27) { //escape
+
+        $('.search-dropdown').hide();
+        $('.search-keyword').val('');
+
+    } else if (e.keyCode == 13) { //enter
+
+        var value = $('.search-selected').attr('id');
+
+        $('.search-dropdown').hide();
+        if (value) {
+            $('.search-keyword').val(value);
+        } else {
+            $('.search-keyword').val($(this).val());
+        }
+        $('form.product-search-box').submit();
+        e.preventDefault();
+    }
+
+    var nav = $('.search-dropdown');
+    if (nav.length) {
+        $(".search-dropdown").scrollTop(0); //set to top
+        $(".search-dropdown").scrollTop($('.search-selected:first').offset().top - $(".search-dropdown")
+            .height())
+    }
+
+});
+</script>
+
+  <style>
+.grecaptcha-badge {
+    display: none !important;
+}
+</style>

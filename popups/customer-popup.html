@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo.svg" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../sign.css">
+    <link rel="stylesheet" href="popup.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="popup-container">
+        <form action="" class="popup">
+            <p id="popup-title">New Customer</p>
+            <label for="customer-name">
+                Add name
+                <input type="text" id="customer-name" required>
+            </label>
+
+            <label for="customer-email">
+                Add email
+                <input type="email" id="customer-email">
+            </label>
+
+            <label for="customer-phone">
+                Add phone
+                <input type="text" id="customer-phone" required>
+            </label>
+
+            <label for="custmer-debt">
+                Add debt
+                <input type="number" id="custmer-debt">
+            </label>
+        </form>
+
+        <button id="popup-btn">Done</button>
+    </div>
+</body>
+
+</html>

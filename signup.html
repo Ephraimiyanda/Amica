@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/icon type" href="/images/Amica-logo.svg" />
+
+  <title>Amica</title>
+  <!-- font -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="sign.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet" />
+  <!-- swiper -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer></script>
+  <!-- inex.js -->
+  <script src="index.js" defer></script>
+  <script src="signup.js" defer></script>
+
+</head>
+
+<body>
+  <!-- preloader -->
+  <div class="preloader">
+    <img src="/images/load.gif" alt="preloader" class="preloader__item" />
+  </div>
+  <main class="container">
+    <div class="sign-up">
+      <div class="login">
+        <header class="">
+          <a href="index.html"><img src="images/icon.png" class="logo" alt="" /></a>
+        </header>
+        <div class="login-header">
+          <p class="warning warining--wrong">kindly input correct email</p>
+          <h1>Create new account</h1>
+        </div>
+
+        <form class="sign-up--form" id="form" method="post" action="/">
+          <p class="warning warining--email">kindly input correct email</p>
+          <label for="name">
+            Name
+            <input type="text" placeholder="Surname first" id="name" autofocus required />
+          </label>
+
+          <label for="email">
+            Email
+            <input type="email" id="email" placeholder="example@mail.com" required />
+          </label>
+          <label for="phone">
+            Phone
+            <input type="number" id="phone" required placeholder="0801234567" />
+          </label>
+          <label for="password">
+            Password
+            <input type="password" id="password" required />
+          </label>
+
+          <div>
+            <label class="d-flex ai-center jc-start" for="remember">
+              <input type="checkbox" id="remember" />
+              Remember Me
+            </label>
+
+            <!-- <a href="#" class="cta">Forgot Password?</a> -->
+          </div>
+
+          <div class="d-grid pi-center ta-center options">
+
+
+            <span class="cta">
+              Already have an account? <a href="index.html"><b>Sign in</b></a>
+            </span>
+
+            <!-- divider -->
+            <span class="divider"><img src="images/divider.svg" class="divider" alt="" /> OR
+              <img src="images/divider.svg" class="divider" alt="" /></span>
+
+            <p>Sign up with:</p>
+
+            <!--Social media icons -->
+            <div class="icon-container d-flex jc-center ai-center">
+              <a href=""><img src="images/icon-google.svg" alt="" /></a>
+              <a href=""><img src="images/icon-facebook.svg" alt="" /></a>
+              <a href=""><img src="images/icon-twitter.svg" alt="" /></a>
+            </div>
+          </div>
+          <input type="submit" name="submit" id="submit" class="dashBoard">
+        </form>
+      </div>
+
+    </div>
+    <!-- Slider main container -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <div class="slider">
+          <img src="images/Amica-logo.svg" />
+          <div class="slider--text">
+            <h3>Amica</h3>
+            <p>Empowering Nigerian Small Businesses and Driving Financial Inclusion.</p>
+          </div>
+        </div>
+        <a href="skipPage.html" class="skip-btn">Skip</a>
+      </div>
+  
+      <div class="swiper-slide">
+        <div class="slider">
+          <img src="images/undraw_investment_data_re_sh9x 1 (1).png" />
+          <div class="slider--text">
+            <h3>Track Profit & Loss</h3>
+            <p>Track All Activities With Analytics</p>
+          </div>
+        </div>
+        <a href="skipPage.html" class="skip-btn">Skip</a>
+      </div>
+      <div class="swiper-slide">
+        <div class="slider">
+          <img src="images/undraw_notebook_re_id0r 1.png" alt="" />
+          <div class="slider--text">
+            <h3>Book Keeping Made Easy</h3>
+            <p>
+              Simplified Book Keeping System With Weekly Tips
+            </p>
+          </div>
+        </div>
+        <a href="skipPage.html" class="skip-btn">Skip</a>
+      </div>
+      <div class="swiper-slide">
+        <div class="slider slider3">
+          <img src="images/undraw_cloud_sync_re_02p1(1) 1.png" alt="" />
+          <div class="slider--text">
+            <h3>Cloud Storage</h3>
+            <p>
+              Store and Retrieve Business Transactions From Anywhere
+            </p>
+            <div class="slider--sign_in">
+              <a href="signup.html" class="sign_in--link">Get Started</a>
+  
+              <h5> <small>Already have an account? <a href="signin.html">sign in</a></h5></small>
+            </div>
+          </div>
+          <a href="skipPage.html" class="skip-btn">Skip</a>
+        </div>
+      </div>
+  
+    </div>
+  
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+  
+    <!-- If we need navigation buttons -->
+  
+  
+    <div class="swiper-button-next">
+      <p class="swiper-button--btn">Next</p>
+    </div>
+  </div>
+
+  </main>
+  <!-- the slider div
+      <div>
+        
+       
+      < 
+      </div> -->
+  </div>
+
+</body>
+
+</html>

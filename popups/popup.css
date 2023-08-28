@@ -1,0 +1,38 @@
+/* This stylesheet is specifically to be used for popups */
+.popup{
+    padding: 3.1rem 4.1rem
+}
+.popup-container{
+    width: fit-content;
+    display: grid;
+    place-items: center;
+    width: 30rem;
+}
+
+.popup-container button[id="popup-btn"]{
+    background-color: var(--text-color);
+    width: 6.25rem;
+    height: 2.87rem;
+    border-radius: 0.438rem;
+    padding:0.25rem 1.87rem;
+    font-weight: 400;
+    font-size: 1.06rem;
+    margin-top: -2rem;
+    
+}
+
+.popup-container label{
+    color: var(--text-color);
+}
+
+input[type="text"], input[type="number"]{
+    padding-inline: 2rem;
+    width: 100%;
+}
+
+#popup-title{
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: black;
+}

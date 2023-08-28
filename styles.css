@@ -1,0 +1,369 @@
+:root {
+  --bg-gradient: radial-gradient(at top right, #0b1682, #4d57bf);
+  --color-cta: hsla(22, 97%, 52%, 1);
+  --hover-color-cta: rgb(198, 92, 31);
+  --input-color: hsl(232, 100%, 69%);
+  --checkbox-color: #eeebff;
+  --text-color: hsla(248, 92%, 37%, 1);
+  --ff-body: "Roboto", sans-serif;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+/* General Styles */
+body {
+  font-family: var(--ff-body);
+  font-size: 1rem;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-gradient);
+}
+a {
+  color: inherit;
+}
+.sign-up {
+  display: none;
+}
+/************************** sign up ****************************/
+.dashBoard {
+  width: 100%;
+  background-color: var(--color-cta);
+  padding: 0.68rem 0.625rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 0.625rem;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 20px;
+  border: none;
+}
+.dashBoard:hover {
+  background-color: var(--hover-color-cta);
+  cursor: pointer;
+}
+.login {
+  overflow-x: hidden;
+  padding: 1.5rem;
+  color: #2007b4;
+  font-size: 0.8rem;
+}
+.login-header {
+  margin: 1.875rem 0rem;
+}
+.login .login--form,
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login > label {
+  display: block;
+}
+.d-flex {
+  margin-top: 0.625rem;
+  display: flex;
+  gap: 0.625rem;
+  justify-content: center;
+}
+#email,
+#password,
+#name,
+button {
+  border-radius: 0.5rem;
+  height: 3.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+#email,
+#name,
+#password {
+  width: 100%;
+  border: 1px solid var(--input-color);
+  text-indent: 1rem;
+  font-size: 1.2rem;
+}
+input:focus {
+  outline: 2px solid var(--text-color);
+  border-radius: 0.5rem;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+}
+.jc-between a {
+  text-decoration: none;
+}
+.jc-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.options p {
+  color: black;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-around;
+  display: none;
+}
+.divider {
+  display: none;
+}
+#submit {
+  border-radius: 0.625rem;
+  background-color: var(--color-cta);
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+  border: none;
+  outline: none;
+}
+input[type="checkbox"] {
+  background-color: var(--checkbox-color);
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+}
+
+.cta {
+  color: var(--color-cta);
+  margin: 1rem 0;
+}
+
+#submit:hover {
+  background-color: var(--hover-color-cta);
+}
+/******************************* swiper *************************/
+
+.swiper-slide > .slider {
+  padding: 3.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 1.12rem;
+  gap: 1.25rem;
+}
+.swiper .slider3 {
+  padding-top: 1.25rem;
+}
+
+.slider--text {
+  text-align: center;
+}
+.slider--text p {
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1.875rem;
+  font-size: 0.9375rem;
+  margin-top: 0.625rem;
+}
+.swiper-slide img {
+  width: 18.75rem;
+  height: 35%;
+}
+.swiper .swiper-button-next::after {
+  content: "" !important;
+}
+.swiper .swiper-button-next {
+  position: absolute;
+  top: 88%;
+  right: 5%;
+}
+.swiper .skip-btn {
+  position: absolute;
+  top: 87%;
+  left: 5%;
+  text-decoration: none;
+}
+.sign_in--link {
+  padding: 0.75rem 1.875rem;
+  background-color: var(--color-cta);
+  color: #fff;
+  border-radius: 0.625rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+  border: #222;
+  line-height: 158%;
+  letter-spacing: 1%;
+  font-family: "Roboto", sans-serif;
+  flex-grow: 1;
+  text-decoration: none;
+}
+.sign_in--link:hover:active {
+  background-color: var(--hover-color-cta);
+}
+.slider--sign_in > h5 {
+  margin-top: 0.9375rem;
+  color: #fff;
+}
+.swiper-button--btn,
+.skip-btn {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.125;
+}
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  z-index: 999;
+  transition: all 0.3s linear;
+}
+
+.hide-preloader {
+  z-index: -999;
+  visibility: hidden;
+}
+/* warning */
+.warning {
+  color: rgb(196, 8, 8);
+  background-color: rgb(252, 199, 199);
+  font-size: 0.8rem;
+  margin: 1px 0;
+  padding: 0.1rem 1rem;
+  display: none;
+  border: 1px solid rgb(196, 8, 8);
+}
+
+@media screen and (min-width: 25rem) {
+  .login {
+    padding: 1.5rem;
+  }
+  .swiper-slide img {
+    width: 25rem;
+    height: 35%;
+  }
+  .swiper-slide > .slider {
+    margin-top: 5.625rem;
+    padding: 4rem 4rem;
+    font-size: 1.5rem;
+  }
+  .sign_in--link {
+    padding: 1.25rem 4rem;
+  }
+  .swiper-slide > .slider {
+    margin-top: 0.625rem;
+  }
+}
+@media screen and (min-width: 49rem) {
+  .container {
+    display: flex;
+  }
+
+  button {
+    width: 100%;
+  }
+  #email,
+  #password,
+  #name,
+  button {
+    height: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  .login-header {
+    margin: 10px 0px 20px 0px;
+  }
+  .login {
+    padding: 1.5rem 5rem;
+  }
+  .d-flex {
+    justify-content: left;
+    margin-top: 5px;
+  }
+  .d-flex .fp {
+    margin-left: auto;
+  }
+  .swiper {
+    width: 50%;
+  }
+  #instruction {
+    margin-top: 0.625rem;
+  }
+  .sign-up {
+    width: 50%;
+    background-color: #fff;
+    display: block;
+    height: 100%;
+  }
+  .icon-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  .swiper-slide img {
+    width: 23.75rem;
+  }
+  .swiper-slide > .slider {
+    padding: 2.5rem;
+  }
+  .sign_in--link {
+    padding: 0.975rem 4rem;
+  }
+  .swiper-button--btn {
+    display: none;
+  }
+  .slider--sign_in {
+    display: none;
+  }
+  .divider {
+    display: flex;
+    gap: 0.625rem;
+    justify-content: center;
+  }
+  .divider > img {
+    width: 40%;
+  }
+  .icon-container {
+    display: flex;
+    gap: 1.875rem;
+    align-items: center;
+  }
+  .skip-btn {
+    display: none;
+  }
+}
+@media screen and (min-width: 62rem) {
+  .login {
+    padding: 1rem 6rem;
+  }
+  .swiper-slide > .slider {
+    padding: 5rem 8rem;
+  }
+  .skip-btn {
+    display: none;
+  }
+}

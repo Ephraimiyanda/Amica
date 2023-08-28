@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet" />
+
+
+  <!-- favicon -->
+  <link rel="icon" type="image/x-icon" href="images/logo.svg" />
+
+  <!-- stylesheet -->
+  <link rel="stylesheet" href="sign.css" />
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer></script>
+  <script src="index.js" defer></script>
+  <script type="module" src="server.js" defer></script>
+
+  <title>StockBook Sign In</title>
+</head>
+
+<body class="d-flex">
+  <!-- preloader -->
+  <div class="preloader">
+    <img src="/images/load.gif" alt="preloader" class="preloader__item" />
+  </div>
+  <main class="container">
+    <div class="sign-up">
+      <div class="login">
+        <header class="">
+          <a href="index.html"><img src="images/amicalogo.png" class="logo" alt=""></a>
+        </header>
+        <div class="login-header">
+
+          <h1>Welcome!</h1>
+          <p id="instruction">Kindly input your details</p>
+        </div>
+
+        <form action="/main/dashBoard.html" method="GET" class="login--form" id="login--form">
+          <label for="email">
+            Email
+
+          </label>
+          <p class="warning warining--email">kindly input correct email</p><input type="email" id="email" required
+            autofocus>
+
+
+          <label for="password">
+            Password
+
+          </label>
+          <p class="warning warning--password">kindly input correct password</p> <input type="password" id="password"
+            required>
+
+
+          <div class="d-flex jc-between ai-center">
+            <label class="d-flex ai-center" for="remember">
+              <input type="checkbox" id="remember">
+              Remember Me
+            </label>
+
+            <a href="/forgotPassword.html" class="cta fp d-flex">Forgot Password?</a>
+          </div>
+
+          <div class="d-grid pi-center ta-center options ">
+
+
+
+            <span class="cta">Don't have an account? <b><a href="signup.html">Sign up</a></b></span>
+            <!-- divider -->
+            <span class="divider"><img src="images/divider.svg" class="divider" alt="" /> OR
+              <img src="images/divider.svg" class="divider" alt="" /></span>
+
+            <p>Sign in with:</p>
+            <!--Social media icons -->
+            <div class="icon-container d-flex jc-center ai-center">
+              <a href=""><img src="images/icon-google.svg" alt=""></a>
+              <a href=""><img src="images/icon-facebook.svg" alt=""></a>
+              <a href=""><img src="images/icon-twitter.svg" alt=""></a>
+            </div>
+          </div>
+          <input type="submit" name="submit" id="submit" class="dashBoard">
+        </form>
+
+
+
+      </div>
+
+    </div>
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <div class="slider">
+            <img src="images/undraw_investment_data_re_sh9x 1 (1).png" />
+            <div class="slider--text">
+              <h3>Track Profit & Loss</h3>
+              <p>See what you have been gaining or lossing profit</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="slider">
+            <img src="images/undraw_notebook_re_id0r 1.png" alt="" />
+            <div class="slider--text">
+              <h3>Bookeeping made easy</h3>
+              <p>
+                Keep records of financial affairs of your
+                business easily
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="slider slider3">
+            <img src="images/undraw_cloud_sync_re_02p1(1) 1.png" alt="" />
+            <div class="slider--text">
+              <h3>Cloud Storage</h3>
+              <p>
+                Store and retrieve all your information
+                from the cloud
+              </p>
+              <div class="slider--sign_in">
+                <a href="signin.html" class="sign_in--link">Get Started</a>
+                <h5> <small>Already have an account? <a href="signin.html">sign in</a></h5></small>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev">
+        <h3 class="swiper-button--btn">Skip</h3>
+      </div>
+      <div class="swiper-button-next">
+        <h3 class="swiper-button--btn">Next</h3>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

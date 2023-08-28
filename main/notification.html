@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/icon type" href="/images/logo.svg" />
+    <title>Amica</title>
+
+    <link rel="stylesheet" href="main.css" />
+
+
+    <script src="app.js" defer></script>
+    <script src="main.js" defer></script>
+
+
+</head>
+
+<body>
+    <div class="preloader">
+        <img src="/images/load.gif" alt="preloader" class="preloader__item" />
+    </div>
+    <header>
+        <div class="header--menu">
+            <img src="/images/fluent_navigation-16-filled (1).png" alt="menu" class="sidebar-toggle" />
+
+            <div class="header--info">
+                <h3>Notifications </h3>
+                <div class="header--info hide">
+                    <img src="/images/blank-profile-picture-973460_1280.webp" class="header--image">
+                    <p><span class="username"></span></p>
+                </div>
+            </div>
+
+            <div class="header--notification">
+                <img src="/images/ri_notification-4-line (1).png" alt="" />
+                <img src="/images/blank-profile-picture-973460_1280.webp" class="notification--img">
+            </div>
+
+
+        </div>
+        </div>
+        </div>
+        <div class="header--sreach">
+            <img src="/images/ic_round-search.png" alt="sreach" width="40px" />
+            <input type="search" name="sreach" id="sreach" placeholder="search" />
+
+        </div>
+
+
+
+
+    </header>
+    <aside>
+        <div class="dashBoard">
+            <div class="close close-btn"><img src="/images/Close_MD.svg" alt=""></div>
+
+            <div class="dashboard--logo">
+                <img src="/images/amicafulllogo.svg" alt="logo" />
+            </div>
+            <div class="dashBoard-items">
+                <ul>
+                    <li class="d-flex">
+                        <img src="/images/icon-park-outline_dashboard-one.png" alt="" />
+                        <a href="/main/dashBoard.html">DashBoard</a>
+                    </li>
+                    <li class="d-flex">
+                        <img src="/images/fluent_tray-item-remove-24-regular.png" alt="" />
+                        <a href="/main/item.html">Items</a>
+                    </li>
+                    <li class="d-flex">
+                        <img src="/images/Vector.png" alt="" />
+                        <a href="/main/sales.html">Sales</a>
+                    </li>
+                    <li class="d-flex">
+                        <img src="/images/Vector2.png" alt="" />
+                        <a href="/main/invoice.html">Invoice</a>
+                    </li>
+                    <li class="d-flex">
+                        <img src="/images/icon-park-outline_expenses-one.png" alt="" />
+                        <a href="/main/expenses.html">Expenses</a>
+                    </li>
+                    <li class="d-flex">
+                        <img src="/images/material-symbols_monitor-weight-loss-outline-sharp.png" alt="" />
+                        <a href="/main/profit.html">Profit and Loss</a>
+                    </li>
+                    <li class="d-flex">
+                        <img src="/images/settings_24px.png" alt="" />
+                        <a>Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <main class="notifications">
+
+        <div class="notification">
+            <p id="notification--paragraph">you are running low on garri</p>
+            <img src="/images/akar-icons_circle-alert.png" alt="">
+        </div>
+
+
+
+
+    </main>
+    <aside>
+
+        <div class="profile">
+            <div class="profile--close"><img src="/images/Close_MD2.png" alt=""></div>
+            <div class="profile-insert">
+                <input type="file" id="file" accept="image/jpeg, image/png, image/jpg">
+                <label for="file"><img src="/images/icons8-cameras-48.png" alt="" class="profile-input"></label>
+                <div class="profile--top">
+                    <img src="/images/blank-profile-picture-973460_1280.webp" class="profile--pic">
+                </div>
+                <div>
+                    <h3 class="profile--username ">Deborah Allen</h3>
+                    <p class="profile--email">deborahallen@gmail.com</p>
+                </div>
+
+            </div>
+            <div>
+                <ul>
+                    <li class="profile--item">
+                        <img src="/images/ri_notification-4-line.png" alt="" />
+                        <p>Manage notifications</p>
+                        <span><img src="/images/icon-right.png" alt="" /></span>
+                    </li>
+                    <li class="profile--item">
+                        <img src="/images/material-symbols_privacy-tip-outline-rounded.png" alt="" />
+                        <p>Private Policy</p>
+                        <span><img src="/images/icon-right.png" alt="" /></span>
+                    </li class="profile--item">
+
+                    <li class="profile--item">
+                        <img src="/images/material-symbols_conditions.png" alt="" />
+                        <p>Terms and Conditions</p>
+                        <span><img src="/images/icon-right.png" alt="" /></span>
+                    </li>
+                    <li class="profile--item">
+                        <img src="/images/material-symbols_contact-support-outline-rounded.png" alt="" />
+                        <p>Support</p>
+                        <span><img src="/images/icon-right.png" alt="" /></span>
+                    </li>
+                    <li class="profile--item logout">
+                        <img src="/images/ic_round-logout.png" alt="" />
+                        <p> Logout</p>
+
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+</body>
+
+</html>

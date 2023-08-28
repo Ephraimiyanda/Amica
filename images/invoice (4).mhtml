@@ -1,0 +1,162 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///C:/Users/VOSTRO/Downloads/invoice%20(4).html
+Subject: 
+Date: Wed, 17 May 2023 19:08:59 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--hCWN9Kmqkr7lAe8mCOJps3lwZBYiXbzuEMHRkc5Rqj----"
+
+
+------MultipartBoundary--hCWN9Kmqkr7lAe8mCOJps3lwZBYiXbzuEMHRkc5Rqj----
+Content-Type: text/html
+Content-ID: <frame-DB1AF997D9BF2967BE0A89D5824671A0@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/VOSTRO/Downloads/invoice%20(4).html
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3Dwindows-1252"></head><body><table cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"invoice--table" id=3D"invoice--table" style=3D"font-family: Arial, H=
+elvetica, sans-serif">
+         =20
+          <tbody><tr class=3D"top">
+            <td colspan=3D"2">
+
+              <table>
+                <tbody><tr>
+                  <td class=3D"title">
+                    <h3 contenteditable=3D"true">insert company logo</h3>
+                  </td>
+
+
+                  <td>
+                    <h3>Invoice #:</h3>
+                    <span class=3D"invoice-id">76416</span><br>
+                    <h3>Created: date:</h3> <span class=3D"invoice--date">2=
+023-05-17</span><br>
+
+                  </td>
+                </tr>
+              </tbody></table>
+            </td>
+          </tr>
+
+          <tr class=3D"information">
+            <td colspan=3D"2">
+              <table>
+                <tbody><tr>
+                  <td>
+                    <h3>location of store </h3>
+                    <p contenteditable=3D"true"> click to edit</p>
+
+                  </td>
+
+                  <td>
+                    <h3>phone number </h3>
+                    <p contenteditable=3D"true"> click to edit</p>
+                </td></tr>
+              </tbody></table>
+            </td>
+          </tr>
+
+          <tr class=3D"heading">
+            <td>Payment Method</td>
+
+            <td>Amount</td>
+          </tr>
+
+          <tr class=3D"details">
+            <td><select name=3D"Payment" id=3D"payment">
+                <option value=3D"check">check</option>
+                <option value=3D"cash" selected=3D"">cash</option>
+                <option value=3D"transfer">transfer</option>
+              </select></td>
+
+            <td contenteditable=3D"true">1000</td>
+          </tr>
+
+          <tr class=3D"heading">
+            <td>Item</td>
+
+            <td>Price</td>
+          </tr>
+
+          <tr class=3D"item">
+            <td><input type=3D"text" placeholder=3D"items" class=3D"item-in=
+put"></td>
+
+            <td><input type=3D"number" placeholder=3D"price" class=3D"item-=
+price"></td>
+          </tr>
+          <tr class=3D"item">
+            <td><input type=3D"text" placeholder=3D"items" class=3D"item-in=
+put"></td>
+
+            <td><input type=3D"number" placeholder=3D"price" class=3D"item-=
+price"></td>
+          </tr>
+          <tr class=3D"item">
+            <td><input type=3D"text" placeholder=3D"items" class=3D"item-in=
+put"></td>
+
+            <td><input type=3D"number" placeholder=3D"price" class=3D"item-=
+price"></td>
+          </tr>
+          <tr class=3D"item">
+            <td><input type=3D"text" placeholder=3D"items" class=3D"item-in=
+put"></td>
+
+            <td><input type=3D"number" placeholder=3D"price" class=3D"item-=
+price"></td>
+          </tr>
+          <tr class=3D"item">
+            <td><input type=3D"text" placeholder=3D"items" class=3D"item-in=
+put"></td>
+
+            <td><input type=3D"number" placeholder=3D"price" class=3D"item-=
+price"></td>
+          </tr>
+
+          <tr class=3D"item">
+            <td><input type=3D"text" placeholder=3D"items" class=3D"item-in=
+put"></td>
+
+            <td><input type=3D"number" placeholder=3D"price" class=3D"item-=
+price"></td>
+          </tr>
+
+          <tr class=3D"item last">
+            <td><input type=3D"text" placeholder=3D"items" class=3D"item-in=
+put"></td>
+
+            <td><input type=3D"number" placeholder=3D"price" class=3D"item-=
+price"></td>
+          </tr>
+
+          <tr class=3D"total">
+            <td></td>
+
+            <td> <button class=3D"total">Total:</button>
+              <p class=3D"item-total">item-total</p>
+            </td>
+
+          </tr>
+          <tr>
+            <td>company signature:</td>
+            <td>
+              <div class=3D"profile-insert">
+                <input type=3D"file" id=3D"file" accept=3D"image/jpeg, imag=
+e/png, image/jpg">
+                <label for=3D"file">
+                  <div class=3D"signature-input">insert your signature</div=
+>
+                </label>
+                <div class=3D"profile--top">
+                  <img src=3D"blob:http://127.0.0.1:5500/d0296c2e-7f36-4d66=
+-828d-2cc75f7961ad" width=3D"10rem" height=3D"4rem" class=3D"signature--pic=
+ profile--pic">
+                </div>
+            </div></td>
+          </tr>
+        </tbody></table></body></html>
+------MultipartBoundary--hCWN9Kmqkr7lAe8mCOJps3lwZBYiXbzuEMHRkc5Rqj------

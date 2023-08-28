@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/icon type" href="/images/amicalogo.png" />
+  <title>dashBoard</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Personal Stylesheet -->
+  <link rel="stylesheet" href="main.css" />
+  <script src="/main/app.js" defer></script>
+
+</head>
+
+<body>
+  <div class="preloader">
+    <img src="/images/load.gif" alt="preloader" class="preloader__item" />
+  </div>
+  <header>
+    <div class="header--menu">
+      <img src="/images/fluent_navigation-16-filled (1).png" alt="menu" class="sidebar-toggle" />
+      <div class="header--info">
+        <h3>Invoice</h3>
+        <div class="header--info hide">
+          <img src="/images/blank-profile-picture-973460_1280.webp" class="header--image">
+          <p><span class="username"></span></p>
+        </div>
+      </div>
+      <div class="header--notification">
+        <a href="/main/notification.html"> <img src="/images/Group 595.png" alt="" /></a>
+        <img src="/images/blank-profile-picture-973460_1280.webp" class="notification--img">
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="header--sreach">
+      <img src="/images/ic_round-search.png" alt="sreach" width="40px" />
+      <input type="search" name="sreach" id="sreach" placeholder="search" />
+      <div class="header--addstock">
+        <button class="add--invoice">Add Invoice</button>
+      </div>
+    </div>
+  </header>
+  <nav class="side-nav">
+    <div class="dashBoard">
+      <div class="close close-btn"><img src="/images/Close_MD.svg" alt=""></div>
+
+      <div class="dashboard--logo">
+        <img src="/images/amicafulllogo.svg" alt="logo" />
+      </div>
+      <div class="dashBoard-items">
+        <ul>
+          <li class="d-flex">
+            <img src="/images/icon-park-outline_dashboard-one.png" alt="" />
+            <a href="/main/dashBoard.html">DashBoard</a>
+          </li>
+          <li class="d-flex ">
+            <img src="/images/fluent_tray-item-remove-24-regular.png" alt="" />
+            <a href="/main/item.html">Items</a>
+          </li>
+          <li class="d-flex">
+            <img src="/images/Vector.png" alt="" />
+            <a href="/main/sales.html">Sales</a>
+          </li>
+          <li class="d-flex active">
+            <img src="/images/Vector2.png" alt="" />
+            <a href="/main/invoice.html">Invoice</a>
+          </li>
+          <li class="d-flex">
+            <img src="/images/icon-park-outline_expenses-one.png" alt="" />
+            <a href="/main/expenses.html">Expenses</a>
+          </li>
+          <li class="d-flex">
+            <img src="/images/material-symbols_monitor-weight-loss-outline-sharp.png" alt="" />
+            <a href="/main/profit.html">Profit and Loss</a>
+          </li>
+          <li class="d-flex">
+            <img src="/images/settings_24px.png" alt="" />
+            <a>Settings</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="main--heading">
+
+      <div class="table--body">
+        <table class="list" id="invoice-list">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>item(s)</th>
+              <th>Date</th>
+              <th>Price</th>
+              <th>Generate</th>
+              <th>Id</th>
+
+
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <!-- popup -->
+      <div class="invoice--popup">
+        <form class="invoice--popup--form" onsubmit="onFormSubmit()">
+          <div class="popoup--head">
+            <img src="/images/Close_MD2.png" alt="" class="invoice--popup--close" />
+          </div>
+          <h2 id="popup-title">New Invoice</h2>
+          <label for="stock-name">Customer name*</label>
+
+          <label class="validation-error hide--invoice" id="fullNameValidationError"> this field is requried</label>
+
+          <input type="text" id="customer-name" name="customer-name" class="stock__input">
+
+
+          <label for="stock-type">
+            Add item(s)
+            <input type="text" id="customer-item" name="customer-item" class="stock__input">
+          </label>
+
+          <label for="stock-amount">
+            Add Date
+            <input type="date" id="date" name="date" class="stock__input">
+          </label>
+
+          <label for="stock-price">
+            Add Price
+            <input type="number" id="customer-price" name="customer-price" class="stock__input">
+          </label>
+          <input class="invoice--save" id="popup-btn" type="submit" value="submit">
+        </form>
+
+
+      </div>
+
+
+      <!-- invoice -->
+      <div class="invoice-box">
+
+        <table cellpadding="0" cellspacing="0" class="invoice--table" id="invoice--table"
+          style="font-family: Arial, Helvetica, sans-serif">
+          <img src="/images/Close_MD2.png" alt="" class="invoice--close">
+          <tr class="top">
+            <td colspan="2">
+
+              <table>
+                <tr>
+                  <td class="title">
+                    <h3 contenteditable="true">insert company logo</h3>
+                  </td>
+
+
+                  <td>
+                    <h3>Invoice #:</h3>
+                    <span class="invoice-id"></span><br />
+                    <h3>Created: date:</h3> <span class="invoice--date"></span><br />
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr class="information">
+            <td colspan="2">
+              <table>
+                <tr>
+                  <td>
+                    <h3>location of store </h3>
+                    <p contenteditable="true"> click to edit</p>
+
+                  </td>
+
+                  <td>
+                    <h3>phone number </h3>
+                    <p contenteditable="true"> click to edit</p>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr class="heading">
+            <td>Payment Method</td>
+
+            <td>Amount</td>
+          </tr>
+
+          <tr class="details">
+            <td><select name="Payment" id="payment">
+                <option value="check">check</option>
+                <option value="cash" selected>cash</option>
+                <option value="transfer">transfer</option>
+              </select></td>
+
+            <td contenteditable="true">1000</td>
+          </tr>
+
+          <tr class="heading">
+            <td>Item</td>
+
+            <td>Price</td>
+          </tr>
+
+          <tr class="item">
+            <td><input type="text" placeholder="items" class="item-input"></td>
+
+            <td><input type="number" placeholder="price" class="item-price"></td>
+          </tr>
+          <tr class="item">
+            <td><input type="text" placeholder="items" class="item-input"></td>
+
+            <td><input type="number" placeholder="price" class="item-price"></td>
+          </tr>
+          <tr class="item">
+            <td><input type="text" placeholder="items" class="item-input"></td>
+
+            <td><input type="number" placeholder="price" class="item-price"></td>
+          </tr>
+          <tr class="item">
+            <td><input type="text" placeholder="items" class="item-input"></td>
+
+            <td><input type="number" placeholder="price" class="item-price"></td>
+          </tr>
+          <tr class="item">
+            <td><input type="text" placeholder="items" class="item-input"></td>
+
+            <td><input type="number" placeholder="price" class="item-price"></td>
+          </tr>
+
+          <tr class="item">
+            <td><input type="text" placeholder="items" class="item-input"></td>
+
+            <td><input type="number" placeholder="price" class="item-price"></td>
+          </tr>
+
+          <tr class="item last">
+            <td><input type="text" placeholder="items" class="item-input"></td>
+
+            <td><input type="number" placeholder="price" class="item-price"></td>
+          </tr>
+
+          <tr class="total">
+            <td></td>
+
+            <td> <button class="total">Total:</button>
+              <p class="item-total">item-total</p>
+            </td>
+
+          </tr>
+          <tr>
+            <td>company signature:</td>
+            <td>
+              <div class="profile-insert">
+                <input type="file" id="file" accept="image/jpeg, image/png, image/jpg">
+                <label for="file">
+                  <div class="signature-input">insert your signature</div>
+                </label>
+                <div class="profile--top">
+                  <img src="/images/download2.jfif" width="10rem" height="4rem" class="signature--pic profile--pic">
+                </div>
+            </td>
+          </tr>
+        </table>
+        <div class="invoice-buttons"><button class="invoice-button invoice-button--1"
+            data-download="invoice--table">Download</button><button
+            class="invoice-button invoice-button--2">print</button></div>
+      </div>
+
+  </main>
+  <aside>
+    <div class="profile">
+      <div class="profile--close"><img src="/images/Close_MD2.png" alt=""></div>
+      <div class="profile-insert">
+        <input type="file" id="file" accept="image/jpeg, image/png, image/jpg">
+        <label for="file"><img src="/images/icons8-cameras-48.png" alt="" class="profile-input"></label>
+        <div class="profile--top">
+          <img src="/images/blank-profile-picture-973460_1280.webp" class="profile--pic">
+        </div>
+        <div>
+          <h3 class="profile--username ">Deborah Allen</h3>
+          <p class="profile--email">deborahallen@gmail.com</p>
+        </div>
+
+      </div>
+      <div>
+        <ul>
+          <li class="profile--item">
+            <img src="/images/ri_notification-4-line.png" alt="" />
+            <p>Manage notifications</p>
+            <span><img src="/images/icon-right.png" alt="" /></span>
+          </li>
+          <li class="profile--item">
+            <img src="/images/material-symbols_privacy-tip-outline-rounded.png" alt="" />
+            <p>Private Policy</p>
+            <span><img src="/images/icon-right.png" alt="" /></span>
+          </li class="profile--item">
+
+          <li class="profile--item">
+            <img src="/images/material-symbols_conditions.png" alt="" />
+            <p>Terms and Conditions</p>
+            <span><img src="/images/icon-right.png" alt="" /></span>
+          </li>
+          <li class="profile--item">
+            <img src="/images/material-symbols_contact-support-outline-rounded.png" alt="" />
+            <p>Support</p>
+            <span><img src="/images/icon-right.png" alt="" /></span>
+          </li>
+          <li class="profile--item logout">
+            <img src="/images/ic_round-logout.png" alt="" />
+            <p> Logout</p>
+
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    // GET ELEMENTS
+    const InvoiceAdd = document.querySelector(".invoice--popup");
+    const invoiceBtn = document.querySelector(".add--invoice");
+    const invoiceCloseBtn = document.querySelector(".invoice--popup--close")
+    const invoiceSaveBtn = document.querySelector(".invoice--save")
+    const form = document.querySelector(".invoice--popup--form")
+    const table = document.getElementById("invoice-list");
+    const invoiceReceiptClose = document.querySelector(".invoice--close")
+    const invoiceReceipt = document.querySelector(".invoice-box")
+    const invoiceId = document.querySelector(".invoice-id")
+    const invoiceDate = document.querySelector(".invoice--date")
+    const itemPrice = document.querySelectorAll(".item-price")
+    const itemTotal = document.querySelector(".item-total")
+    const total = document.querySelector(".total")
+    const printbtn = document.querySelector(".invoice-button--2")
+
+    const tbody = table.getElementsByTagName("tbody")[0];
+    invoiceBtn.addEventListener("click", () => {
+      //  ADDEVENTLISTENERS
+      InvoiceAdd.classList.add("show--popup--invoice");
+    });
+    invoiceCloseBtn.addEventListener("click", () => {
+
+      InvoiceAdd.classList.remove("show--popup--invoice");
+    });
+
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault()
+    })
+    // Load data from localStorage
+    const invoiceData = JSON.parse(localStorage.getItem("invoiceData")) || [];
+    invoiceData.forEach((data) => {
+      insertFormData(data);
+    });
+    function onFormSubmit() {
+      if (validate()) {
+        let formData = readFormData();
+        insertFormData(formData);
+        generateId()
+        resetForm();
+        InvoiceAdd.classList.remove("show--popup--invoice");
+        // save to local storage
+        const invoiceData = JSON.parse(localStorage.getItem("invoiceData")) || [];
+        invoiceData.push(formData);
+        localStorage.setItem("invoiceData", JSON.stringify(invoiceData));
+      }
+    }
+    function readFormData() {
+      let formData = {};
+      formData["customername"] = document.getElementById("customer-name").value;
+      formData["customeritem"] = document.getElementById("customer-item").value;
+      formData["date"] = document.getElementById("date").value;
+      formData["customerprice"] = document.getElementById("customer-price").value;
+      return formData;
+    }
+
+    function insertFormData(data) {
+      let newRow = tbody.insertRow(tbody.length);
+      cell1 = newRow.insertCell(0);
+      cell1.innerHTML = data.customername;
+      cell2 = newRow.insertCell(1);
+      cell2.innerHTML = data.customeritem;
+      cell3 = newRow.insertCell(2);
+      cell3.innerHTML = data.date;
+      cell4 = newRow.insertCell(3);
+      cell4.innerHTML = data.customerprice;
+      cell5 = newRow.insertCell(4);
+      cell5.innerHTML = `<button onClick="generate()" class="invoice--generate"> generate </button`;
+      cell6 = newRow.insertCell(5);
+      cell6.innerHTML = `${generateId()} `;
+      cell7 = newRow.insertCell(6);
+      cell7.innerHTML = `<img onClick="onDelete(this)" src="/images/Close_MD2.png" alt="" class="popup--close">`;
+
+    }
+    function resetForm() {
+      document.getElementById("customer-name").value = "";
+      document.getElementById("customer-item").value = "";
+      document.getElementById("date").value = "";
+      document.getElementById("customer-price").value = "";
+    }
+    function onDelete(td) {
+      if (confirm("Are you sure you want to delete this record?")) {
+        row = td.parentElement.parentElement;
+        tbody.deleteRow(row.rowIndex - 1, 1);
+        resetForm();
+
+        // Remove data from localStorage
+        const invoiceData = JSON.parse(localStorage.getItem("invoiceData")) || [];
+        invoiceData.splice(row.rowIndex - 0, 1);
+        localStorage.setItem("invoiceData", JSON.stringify(invoiceData));
+      }
+    }
+    function generateId() {
+      const id = Math.floor(Math.random() * 100000)
+      invoiceId.textContent = id
+      return id;
+
+
+
+    }
+
+    function generate() {
+
+      invoiceReceipt.classList.add("show--invoice-receipt")
+
+
+    }
+    invoiceReceiptClose.addEventListener("click", () => {
+      invoiceReceipt.remove("show--invoice-receipt")
+    })
+    // date
+    const mainDate = new Date()
+    const year = mainDate.toLocaleString("default", { year: "numeric" });
+    const month = mainDate.toLocaleString("default", { month: "2-digit" });
+    const day = mainDate.toLocaleString("default", { day: "2-digit" })
+    let formattedDate = year + "-" + month + "-" + day;
+    invoiceDate.textContent = formattedDate
+
+    function validate() {
+      isValid = true;
+      if (document.getElementById("customer-name").value == "") {
+        isValid = false;
+        document.getElementById("fullNameValidationError").classList.remove("hide--invoice");
+      } else {
+        isValid = true;
+        if (
+          document
+            .getElementById("fullNameValidationError")
+            .classList.contains("hide--invoice")
+        )
+          document.getElementById("fullNameValidationError").classList.add("hide--invoice");
+      }
+      return isValid;
+    }
+    // search
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchInput = document.querySelector("#sreach");
+      const tableBody = document.getElementById("tbody");
+
+
+      const rows = Array.from(tableBody.getElementsByTagName("tr"));
+
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+        const escapedQuery = RegExp.escape(query);
+
+        rows.forEach((row) => {
+          const cells = row.querySelectorAll("td");
+          let found = false;
+
+          cells.forEach((cell) => {
+            const value = cell.textContent.toLowerCase().replace(",", "");
+
+            if (value.search(new RegExp(escapedQuery)) !== -1) {
+              found = true;
+            }
+          });
+
+          if (found) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Polyfill for RegExp.escape() method
+    if (!RegExp.escape) {
+      RegExp.escape = function (string) {
+        return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
+      };
+    }
+    // price total
+    total.addEventListener("click", () => {
+      let sum = 0
+      itemPrice.forEach((item) => {
+        sum += Number(item.value)
+        itemTotal.textContent = `N${sum}`
+      })
+    })
+    // download
+    // JavaScript code
+    const downloadButton = document.querySelector(".invoice-button--1");
+    const invoiceTable = document.getElementById("invoice--table");
+
+    downloadButton.addEventListener("click", () => {
+      const tableHTML = invoiceTable.outerHTML;
+      const filename = "invoice.html";
+      const downloadLink = document.createElement("a");
+
+      downloadLink.href = "data:text/html;charset=utf-8," + encodeURIComponent(tableHTML);
+      downloadLink.download = filename;
+      downloadLink.style.display = "none";
+
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
+
+    //  print
+    printbtn.addEventListener("click", printInvoice)
+    function printInvoice() {
+      var invoiceBox = document.getElementById("invoice--table");
+      var printWindow = window.open('', '', 'height=500,width=800');
+      printWindow.document.write('<head><title>Print Invoice</title></head>');
+      printWindow.document.write(invoiceBox.innerHTML);
+
+      printWindow.document.close();
+      printWindow.print();
+    }
+
+// Get form data
+const customerName = document.getElementById("customer-name").value;
+const customerItem = document.getElementById("customer-item").value;
+const date = document.getElementById("date").value;
+const customerPrice = document.getElementById("customer-price").value;
+
+// Create an object with the form data
+const formData = {
+  customername: customerName,
+  customeritem: customerItem,
+  date: date,
+  customerprice: customerPrice
+};
+
+// Send a fetch POST request to the /invoice endpoint
+fetch("https://amica.onrender.com/invoice", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(formData)
+})
+  .then(response => response.json())
+  .then(data => {
+    // Handle the response data if needed
+    console.log("Invoice added:", data);
+    // Perform any additional actions here
+  })
+  .catch(error => {
+    console.error("Error adding invoice:", error);
+    // Handle errors here
+  });
+
+  </script>
+</body>
+
+</html>

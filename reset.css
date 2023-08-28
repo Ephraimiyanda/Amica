@@ -1,0 +1,13 @@
+.login header{
+    margin-bottom: 4rem;
+}
+
+@media screen and (min-width: 49rem){
+    .login header{
+        margin-bottom: 7rem;
+    }
+
+    .continue{
+        margin-top: 2rem;
+    }
+}
