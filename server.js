@@ -53,7 +53,7 @@ button.addEventListener("click", (e) => {
         message: `User created: ${data.name}`,
         email: email,
       }).toString();
-      window.location.href = `/main/dashboard.html?${queryParams}`;
+      window.location.href = `./main/dashboard.html?${queryParams}`;
     })
     .catch((err) => {
       console.log(err);
