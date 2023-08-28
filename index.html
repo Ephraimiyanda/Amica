@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="NGIUTfHVIwkwJiNzJS_NV-OiJopcdowX-Qdi2e-dNVA" />
+  <meta name="google-signin-client_id" content="388390469054-qhkmten3rkncdldtmm6dngtjtma9to5a.apps.googleusercontent.com">
   <link rel="icon" type="image/icon type" href="/images/Amica-logo.svg" />
 
   <title>Amica</title>
@@ -76,10 +76,23 @@
 
             <p>Sign in with:</p>
             <!--Social media icons -->
-            <div class="icon-container d-flex jc-center ai-center">
-              <a href=""><img src="images/icon-google.svg" alt=""></a>
-              <a href=""><img src="images/icon-facebook.svg" alt=""></a>
-              <a href=""><img src="images/icon-twitter.svg" alt=""></a>
+            <div id="g_id_onload"
+            data-client_id="388390469054-qhkmten3rkncdldtmm6dngtjtma9to5a.apps.googleusercontent.com"
+            data-context="signin"
+            data-ux_mode="redirect"
+            data-login_uri="https://amica01.netlify.app/dashboard"
+            
+            data-auto_prompt="false">
+       </div>
+       
+       <div class="g_id_signin"
+            data-type="standard"
+            data-shape="rectangular"
+            data-theme="outline"
+            data-text="signin_with"
+            data-size="large"
+            data-logo_alignment="left">
+       </div>
             </div>
           </div>
           <input type="submit" name="submit" id="submit" class="dashBoard">
@@ -168,7 +181,11 @@
       < 
       </div> -->
   </div>
-
+  <script src="https://accounts.google.com/gsi/client?hl=fr" async defer></script>
+...
+<div class="g_id_signin"
+  data-locale="fr">
+</div>
 </body>
 
 </html>

@@ -139,7 +139,8 @@ input:focus {
   font-weight: 700;
   font-size: 1.25rem;
   border: none;
-
+width: 70%;
+margin: auto;
   outline: none;
 }
 input[type="checkbox"] {

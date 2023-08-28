@@ -142,6 +142,10 @@ input:focus {
   font-size: 1.25rem;
   border: none;
   outline: none;
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 input[type="checkbox"] {
   background-color: var(--checkbox-color);
