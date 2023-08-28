@@ -35,7 +35,7 @@ button.addEventListener("click", (e) => {
   localStorage.setItem("email", email);
   localStorage.setItem("password", password);
 
-  fetch("https://amica.onrender.com/users/login", {
+  fetch("https://amica-a.onrender.com/users/login", {
     method: "POST",
     headers: {
       "Content-type": "application/json",

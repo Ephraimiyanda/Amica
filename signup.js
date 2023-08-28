@@ -40,7 +40,7 @@ button.addEventListener("click", (e) => {
     warning.style.display = "none";
   }
 
-  fetch("https://amica.onrender.com/users", {
+  fetch("https://amica-a.onrender.com/users", {
     method: "POST",
     headers: {
       "Content-type": "application/json",
