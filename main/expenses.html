@@ -312,7 +312,7 @@
   const expensesTable = document.getElementById('expenses-list');
 
   // Fetch all expenses
-  fetch('https://amica.onrender.com/expenses')
+  fetch('https://amica-a.onrender.com/expenses')
     .then(response => response.json())
     .then(expenses => {
       // Process the fetched expenses data
@@ -344,7 +344,7 @@
   // Function to delete an expense
   function deleteExpense(expenseId) {
     if (confirm('Are you sure you want to delete this expense?')) {
-      fetch(`https://amica.onrender.com/expenses/${expenseId}`, {
+      fetch(`https://amica-a.onrender.com/expenses/${expenseId}`, {
         method: 'DELETE'
       })
         .then(response => response.json())

@@ -356,7 +356,7 @@
   const salesTable = document.getElementById('sales-list');
 
   // Fetch all sales
-  fetch('https://amica.onrender.com/sales')
+  fetch('https://amica-a.onrender.com/sales')
     .then(response => response.json())
     .then(sales => {
       // Process the fetched sales data
@@ -389,7 +389,7 @@
   // Function to delete a sale
   function deleteSale(saleId) {
     if (confirm('Are you sure you want to delete this sale?')) {
-      fetch(`https://amica.onrender.com/sales/${saleId}`, {
+      fetch(`https://amica-a.onrender.com/sales/${saleId}`, {
         method: 'DELETE'
       })
         .then(response => response.json())

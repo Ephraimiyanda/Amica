@@ -195,7 +195,7 @@ if (!RegExp.escape) {
 
 // Consuming API
 // Fetch all stocks
-fetch('https://amica.onrender.com/stocks')
+fetch('https://amica-a.onrender.com/stocks')
   .then(response => response.json())
   .then(data => {
     // Process the data (list of stocks) returned from the API
@@ -214,7 +214,7 @@ const newStock = {
   price: 100.0
 };
 
-fetch('https://amica.onrender.com/stocks', {
+fetch('https://amica-a.onrender.com/stocks', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
