@@ -16,10 +16,10 @@ const search = document.querySelector("#search");
 const searchBtn = document.querySelector('#searchBtn')
 
 // Search
-searchBtn.addEventListener('click', function (e) {
-  const searchValue = search.value.trim();
-  console.log(searchValue);
-})
+// searchBtn.addEventListener('click', function (e) {
+//   const searchValue = search.value.trim();
+//   console.log(searchValue);
+// })
 
 toggleBtn.addEventListener("click", function () {
   dashboard.classList.toggle("show-sidebar");
