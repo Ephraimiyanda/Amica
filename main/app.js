@@ -1,5 +1,4 @@
 const toggleBtn = document.querySelector(".sidebar-toggle");
-const closeBtn = document.querySelector(".close-btn");
 const dashboard = document.querySelector(".dashBoard");
 const profile = document.querySelector(".notification--img");
 const profileClose = document.querySelector(".profile--close");
@@ -26,9 +25,7 @@ toggleBtn.addEventListener("click", function () {
   dashboard.classList.toggle("show-sidebar");
   toggleBtn.classList.toggle('open');
 });
-// closeBtn.addEventListener("click", function () {
-//   dashboard.classList.remove("show-sidebar");
-// });
+
 profile.addEventListener("click", () => {
   mainProfile.classList.toggle("show--profile");
 });
