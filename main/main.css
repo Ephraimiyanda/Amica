@@ -119,7 +119,7 @@ header {
   position: absolute;
   top: 0px;
   background: radial-gradient(at top right, #0b1682, #4d57bf);
-  padding: 20px 0px 70px 0px;
+  padding: 4.3rem 0px 70px 0px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s linear;
   z-index: 12;
@@ -158,6 +158,52 @@ header {
   cursor: pointer;
   animation: bounce 2s ease-in-out infinite;
 }
+
+/* New Hamburgericon */
+li.hamburger {
+  display: flex;
+  align-self: center;
+  flex-direction: column; 
+  align-items: center;
+  z-index: 999;
+}
+
+li.hamburger .sidebar-toggle {  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 19px;
+  cursor: pointer;
+}
+
+li.hamburger::marker {
+  display: none;
+  color: white;
+  background: white;
+}
+
+li.hamburger .sidebar-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 5px;
+  background-color: black;
+  transition: transform 0.4s ease-in-out;
+}
+
+li.hamburger .sidebar-toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+li.hamburger .sidebar-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+li.hamburger .sidebar-toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 .show-sidebar {
   transform: translate(0);
   position: fixed;

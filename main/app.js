@@ -22,15 +22,13 @@ searchBtn.addEventListener('click', function (e) {
   console.log(searchValue);
 })
 
-// const setReminderPopup = document.querySelector(".set--reminder--popup");
-// const setReminderClose = document.querySelector(".popup--close--setReminder");
-// const SetreminderSave = document.querySelector(".set--reminder--save");
 toggleBtn.addEventListener("click", function () {
   dashboard.classList.toggle("show-sidebar");
+  toggleBtn.classList.toggle('open');
 });
-closeBtn.addEventListener("click", function () {
-  dashboard.classList.remove("show-sidebar");
-});
+// closeBtn.addEventListener("click", function () {
+//   dashboard.classList.remove("show-sidebar");
+// });
 profile.addEventListener("click", () => {
   mainProfile.classList.toggle("show--profile");
 });
