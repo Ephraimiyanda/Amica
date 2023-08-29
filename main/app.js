@@ -13,6 +13,14 @@ const userName = document.querySelector(".username");
 const profileName = document.querySelector(".profile--username");
 const profileEmail = document.querySelector(".profile--email");
 const logout = document.querySelector(".logout");
+const search = document.querySelector("#search");
+const searchBtn = document.querySelector('#searchBtn')
+
+// Search
+searchBtn.addEventListener('click', function (e) {
+  const searchValue = search.value.trim();
+  console.log(searchValue);
+})
 
 // const setReminderPopup = document.querySelector(".set--reminder--popup");
 // const setReminderClose = document.querySelector(".popup--close--setReminder");
