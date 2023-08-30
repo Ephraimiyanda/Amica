@@ -71,11 +71,13 @@ window.addEventListener("load", function () {
   preloader.classList.add("hide-preloader");
 });
 document.addEventListener("DOMContentLoaded", () => {
+  const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
   const email = localStorage.getItem("email");
   const storedUsername = localStorage.getItem("username");
-  userName.textContent = ` Hello, ${storedUsername}`;
-  profileName.textContent = storedUsername;
-  profileEmail.textContent = email;
+  userName.textContent = ` Hello, ${userId.name}`;
+  profileName.textContent = userId.name;
+  profileEmail.textContent = userId.email;
   const image = localStorage.getItem("profileImage");
   userImage.src = image;
   toggleTImage.src = image;
