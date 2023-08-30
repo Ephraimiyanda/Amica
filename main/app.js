@@ -54,13 +54,13 @@ window.addEventListener("load", function () {
   preloader.classList.add("hide-preloader");
 });
 document.addEventListener("DOMContentLoaded", () => {
-  const email = localStorage.getItem("email");
+  const email = localStorage.getItem("User");
   // console.log(email);
-  const storedUsername = localStorage.getItem("username");
-  // console.log(storedUsername);
-  userName.textContent = ` Hello ${storedUsername}`;
-  profileName.textContent = storedUsername;
-  profileEmail.textContent = email;
+  const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
+  userName.textContent = ` Hello, ${userId.name}`;
+  profileName.textContent = userId.name;
+  profileEmail.textContent = userId.email;
   const image = localStorage.getItem("profileImage");
   userImage.src = image;
   toggleTImage.src = image;

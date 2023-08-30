@@ -50,7 +50,7 @@ button.addEventListener("click", (e) => {
       }
     })
     .then((data) => {
-      localStorage.setItem("user", JSON.stringify({ name: data.name, _id: data._id }));
+      localStorage.setItem("user", JSON.stringify({ name: data.name, _id: data._id, email:data.email }));
       const queryParams = new URLSearchParams({
         message: `User created: ${data.name}`,
         email: email,
