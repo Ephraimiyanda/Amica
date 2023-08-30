@@ -68,12 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
- function displayChart () {
-fetch("https://amica-a.onrender.com/users/64edd2d1881168f1250ecabf/profit")
-  .then((response) => response.json())
-  .then((data) => {
-    // Step 2: Parse the data
-    console.log(data);
+ async function displayChart () {
+  const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
+  console.log(userId._id);  
+try {
+  const response = await fetch(`https://amica-a.onrender.com/users/${userId._id}/profit`);
+   if(response.ok){
+    const data = await response.json()
+    // console.log(data);
     const labels = data.map((item) => item.date);
     const income = data.map((item) => item.totalSales);
     const expenses = data.map((item) => item.totalExpenses);
@@ -126,7 +129,70 @@ fetch("https://amica-a.onrender.com/users/64edd2d1881168f1250ecabf/profit")
 
     // Step 4: Render the chart
     myChart.update();
-  });
+   }
+
+} catch (error) {
+  console.log(error)
+}
+  
+
+//   .then((response) => response.json())
+//   .then((data) => {
+//     // Step 2: Parse the data
+//     console.log(data);
+//     const labels = data.map((item) => item.date);
+//     const income = data.map((item) => item.totalSales);
+//     const expenses = data.map((item) => item.totalExpenses);
+
+//     // console.log(values);
+//     // Step 3: Set up your Chart.js chart
+//     const ctx = document.getElementById("myChart").getContext("2d");
+//     const myChart = new Chart(ctx, {
+//       // {console.log(values)};
+//       type: "bar",
+//       data: {
+//         labels: labels,
+//         datasets: [
+//           {
+//             label: "Income",
+//             data: income,
+//             backgroundColor: ["rgba(54, 162, 235, 0.2)"],
+//             borderColor: ["rgba(54, 162, 235, 1)"],
+//             borderWidth: 1,
+//           },
+//           {
+//             label: "Expense",
+//             data: expenses,
+//             backgroundColor:["#2007b4"],
+//             borderColor: ["#2007b4"],
+//             borderWidth: 1,
+//           }
+//         ],
+//       },
+//       options: {
+//         maintainAspectRatio: false,
+//         locale: "en-NG",
+//         scales: {
+//           y: {
+//             ticks: {
+//               callback: (value, index, values) => {
+//                 // return value;
+//                 return new Intl.NumberFormat("en-NG", {
+//                   style: "currency",
+//                   currency: "NGN",
+//                   maximumSignificantDigits: 3,
+//                 }).format(value);
+//               },
+//             },
+//             beginAtZero: true,
+//           },
+//         },
+//       },
+//     });
+
+//     // Step 4: Render the chart
+//     myChart.update();
+//   });
  }
 
 
@@ -147,10 +213,6 @@ const messages = urlParams.get("message");
 
 // Use the message as needed
 // Output: User created
-const username = messages.split(":")[1].trim();
-
-// Store the username in Local Storage
-localStorage.setItem("username", username);
 
 // Retrieve the username from Local Storage
 const storedUsername = localStorage.getItem("username");

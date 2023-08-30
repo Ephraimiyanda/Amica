@@ -310,9 +310,10 @@
         document.addEventListener('DOMContentLoaded', () => {
   // DOM elements
   const expensesTable = document.getElementById('expenses-list');
-
+  const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
   // Fetch all expenses
-  fetch('https://amica-a.onrender.com/expenses')
+  fetch(`https://amica-a.onrender.com/expenses/${userId._id}/all`)
     .then(response => response.json())
     .then(expenses => {
       // Process the fetched expenses data

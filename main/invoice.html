@@ -547,19 +547,21 @@ const customerPrice = document.getElementById("customer-price").value;
 
 // Create an object with the form data
 const formData = {
-  customername: customerName,
-  customeritem: customerItem,
+  customer_name: customerName,
+  items: customerItem,
   date: date,
-  customerprice: customerPrice
+  price: customerPrice
 };
-fetch(`https://amica-a.onrender.com/invoice/${userId}/all`)
+const getuserId = localStorage.getItem("user");
+  const userid = JSON.parse(getuserId);
+fetch(`https://amica-a.onrender.com/invoices/${userid._id}/all`)
 .then(data=>data.json())
 .then(res=>{
 insertFormData(res)
 })
 // Send a fetch POST request to the /invoice endpoint
 const newInvoice=()=>{
-  fetch(`https://amica-a.onrender.com/invoice/${userId}/add`, {
+  fetch(`https://amica-a.onrender.com/invoice/${userid._id}/add`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json"

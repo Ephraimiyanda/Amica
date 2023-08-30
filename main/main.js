@@ -187,8 +187,10 @@ if (!RegExp.escape) {
 
 // Consume API and insert data
 const fetchDataAndInsert = async () => {
+  const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
   try {
-    const response = await fetch('https://amica-a.onrender.com/stocks');
+    const response = await fetch(`https://amica-a.onrender.com/stocks/${userId._id}/all`);
     const data = await response.json();
 
     if (Array.isArray(data)) {
@@ -202,17 +204,18 @@ const fetchDataAndInsert = async () => {
 
 // Add new stock to API
 const newProduct = () => {
-
+  const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
   const newStock = {
-    user:userId,
+    user:userId._id,
     name: stockName.value,
     type: stockType.value,
-    quantity: stockAmount.value,
-    price: stockPrice.value
+    quantity: parseInt(stockAmount.value),
+    price: parseInt(stockPrice.value) 
   };
 
 console.log(newStock);
-  fetch(`https://amica-a.onrender.com/stocks/${userId}/add`, {
+  fetch(`https://amica-a.onrender.com/stocks/${userId._id}/add`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
