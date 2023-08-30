@@ -23,7 +23,13 @@
   <header>
     <div class="header--top">
       <div class="header--menu">
-        <img src="/images/fluent_navigation-16-filled (1).png" alt="menu" class="sidebar-toggle" />
+        <li class="hamburger">
+          <div class="sidebar-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </li>
 
         <div class="header--info">
           <img src="/images/blank-profile-picture-973460_1280.webp" class="header--image">
@@ -38,15 +44,17 @@
       </div>
     </div>
     </div>
-    <h2>DashBoard</h2>
-    <div class="header--sreach">
-      <img src="/images/ic_round-search.png" alt="sreach" width="40px" />
-      <input type="search" name="sreach" id="sreach" placeholder="search" />
+    <div style="display: none;" class="header--sreach">
+      <img src="/images/ic_round-search.png" id="searchBtn" alt="search" width="40px" />
+      <input type="search" name="sreach" id="search" placeholder="search" />
+      <div class="header--addstock">
+        <button class="add">Add Stock</button>
+      </div>
     </div>
+    <h2>DashBoard</h2>
   </header>
   <aside>
     <div class="dashBoard">
-      <div class="close close-btn"><img src="/images/Close_MD.svg" alt=""></div>
 
       <div class="dashboard--logo">
         <img src="/images/amicafulllogo.svg" alt="logo" />
@@ -136,8 +144,10 @@
     <div class="profile">
       <div class="profile--close"><img src="/images/Close_MD2.png" alt=""></div>
       <div class="profile-insert">
-        <input type="file" id="file" accept="image/jpeg, image/png, image/jpg">
-        <label for="file"><img src="/images/icons8-cameras-48.png" alt="" class="profile-input"></label>
+        <form action="" id="myForm">
+          <input type="file" id="file" accept="image/jpeg, image/png, image/jpg">
+          <label for="file"><img src="/images/icons8-cameras-48.png" alt="" class="profile-input"></label>
+        </form>
         <div class="profile--top">
           <img src="/images/blank-profile-picture-973460_1280.webp" class="profile--pic">
         </div>
