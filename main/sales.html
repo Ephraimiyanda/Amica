@@ -318,6 +318,7 @@ function validate() {
   fetch(`https://amica-a.onrender.com/sales/${userid._id}/all`)
     .then(response => response.json())
     .then(sales => {
+        console.log(sales)
       // Process the fetched sales data
       sales.forEach(sale => {
         insertSaleData(sale);
