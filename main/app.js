@@ -183,6 +183,7 @@ const storedUsername = localStorage.getItem("username");
 const email = localStorage.getItem("email");
 // logout
 function loggingout() {
+  const getuserId = localStorage.clear("user");
   window.location.href = "/signin.html";
 }
 
