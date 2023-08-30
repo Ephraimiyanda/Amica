@@ -98,15 +98,15 @@ h2 {
 }
 /* dashbord */
 .dashBoard {
-  width: 40%;
-  position: absolute;
+  width: 60%;
+  position: fixed;
   top: 0px;
   background: radial-gradient(at top right, #0b1682, #4d57bf);
   padding: 20px 0px 70px 0px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s linear;
   z-index: 12;
-  height: 100%;
+  min-height: 100%;
   transform: translate(-100%);
 }
 .dashboard--logo > img {
