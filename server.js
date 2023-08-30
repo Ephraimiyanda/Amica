@@ -47,13 +47,13 @@ button.addEventListener("click", (e) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      localStorage.setItem("user",data._id)
 
       const queryParams = new URLSearchParams({
         message: `User created: ${data.name}`,
         email: email,
       }).toString();
-      window.location.href = `./main/dashboard.html?${queryParams}`;
+      window.location.href = `/main/dashboard.html?${queryParams}`;
     })
     .catch((err) => {
       console.log(err);
@@ -61,4 +61,3 @@ button.addEventListener("click", (e) => {
       WarningPassword.textContent = "Wrong password";
     });
 });
-

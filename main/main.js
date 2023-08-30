@@ -1,9 +1,14 @@
-// pop up
+// Pop up
 const addItem = document.querySelector(".add");
 const popup = document.querySelector(".popup-container");
 const close = document.querySelector(".popup--close");
 const form1 = document.querySelector(".popup");
 const message = document.querySelector(".message");
+const stockType = document.querySelector("#stock-type");
+const stockAmount = document.getElementById("stock-amount");
+const stockPrice = document.getElementById("stock-price");
+const stockName = document.querySelector(".stock-name");
+const userId=localStorage.getItem("user")
 
 addItem.addEventListener("click", () => {
   popup.classList.add("show--popup");
@@ -12,80 +17,40 @@ close.addEventListener("click", () => {
   popup.classList.remove("show--popup");
 });
 
-// form
+// Form
 
 let selectedRow = null;
 form1.addEventListener("submit", (e) => {
   e.preventDefault();
+  newProduct()
 });
 
 const table = document.getElementById("item-list");
-
 const tbody = table.getElementsByTagName("tbody")[0];
 
 // Load data from localStorage
-const savedData = JSON.parse(localStorage.getItem("mydata")) || [];
-savedData.forEach((data) => {
-  insertFormData(data);
-});
-
-function onFormSubmit() {
-  if (validate()) {
-    let formData = readFormData();
-    if (selectedRow === null) {
-      insertFormData(formData);
-      message.textContent = "row inserted!";
-      message.classList.add("message--display");
-
-      setInterval(() => {
-        message.classList.remove("message--display");
-      }, 600);
-    } else {
-      updaterecord();
-    }
-    resetForm();
-    popup.classList.remove("show--popup");
-
-    // Save data to localStorage
-    const savedData = JSON.parse(localStorage.getItem("mydata")) || [];
-    savedData.push(formData);
-    localStorage.setItem("mydata", JSON.stringify(savedData));
-  }
-}
-
-function readFormData() {
-  let formData = {};
-  formData["stockname"] = document.getElementById("stock-name").value;
-  formData["stocktype"] = document.getElementById("stock-type").value;
-  formData["stockamount"] = document.getElementById("stock-amount").value;
-  formData["stockprice"] = document.getElementById("stock-price").value;
-  return formData;
-}
 
 function insertFormData(data) {
-  let newRow = tbody.insertRow(tbody.length);
-
-  cell1 = newRow.insertCell(0);
-  cell1.innerHTML = data.stockname;
-  cell2 = newRow.insertCell(1);
-  cell2.innerHTML = data.stocktype;
-  cell3 = newRow.insertCell(2);
-  cell3.innerHTML = data.stockamount;
-  cell4 = newRow.insertCell(3);
-  cell4.innerHTML = data.stockprice;
-  cell5 = newRow.insertCell(4);
-  cell5.innerHTML = `<img onClick="onEdit(this)" src="/images/icons8-edit-20.png" alt="" class="popup--edit">`;
-  cell6 = newRow.insertCell(5);
-  cell6.innerHTML = `<img onClick="onDelete(this)" src="/images/Close_MD2.png" alt="" class="popup--close">`;
+  data.forEach((stock) => {
+    let newRow = tbody.insertRow(tbody.length);
+    newRow.setAttribute('data-id', stock._id);
+    cell1 = newRow.insertCell(0);
+    cell1.innerHTML = stock.name;
+    cell2 = newRow.insertCell(1);
+    cell2.innerHTML = stock.type;
+    cell3 = newRow.insertCell(2);
+    cell3.innerHTML = stock.quantity;
+    cell4 = newRow.insertCell(3);
+    cell4.innerHTML = stock.price;
+    cell5 = newRow.insertCell(4);
+    cell5.innerHTML = `<img onClick="onEdit(this)" src="/images/icons8-edit-20.png" alt="" class="popup--edit">`;
+    cell6 = newRow.insertCell(5);
+    cell6.innerHTML = `<img onClick="onDelete(this)" src="/images/Close_MD2.png" alt="" class="popup--close">`;
+  });
 }
 
-function resetForm() {
-  document.getElementById("stock-name").value = "";
-  document.getElementById("stock-type").value = "";
-  document.getElementById("stock-amount").value = "";
-  document.getElementById("stock-price").value = "";
-  selectedRow = null;
-}
+
+
 function onEdit(td) {
   popup.classList.add("show--popup");
   selectedRow = td.parentElement.parentElement;
@@ -101,23 +66,17 @@ function onEdit(td) {
   savedData.splice(row.rowIndex - 0, 1);
   localStorage.setItem("mydata", JSON.stringify(savedData));
 }
-function updaterecord() {
-  selectedRow.cells[0].innerHTML = document.getElementById("stock-name").value;
-  selectedRow.cells[1].innerHTML = document.getElementById("stock-type").value;
-  selectedRow.cells[2].innerHTML =
-    document.getElementById("stock-amount").value;
-  selectedRow.cells[3].innerHTML = document.getElementById("stock-price").value;
-  let updatemessage = document.getElementById("stock-name").value;
-  message.textContent = `${updatemessage} updated!`;
-  message.classList.add("message--display");
 
-  setInterval(() => {
-    message.classList.remove("message--display");
-  }, 600);
-  // notifications
+function updaterecord() {
+  const productId = selectedRow.getAttribute('data-id');
+  const updatedData = readFormData();
+  updateProduct(productId, updatedData);
+  popup.classList.remove('show--popup');
 }
 
 function onDelete(td) {
+  const productId = td.parentElement.parentElement.getAttribute('data-id');
+  deleteProduct(productId);
   if (confirm("Are you sure you want to delete this record?")) {
     row = td.parentElement.parentElement;
     tbody.deleteRow(row.rowIndex - 1, 1);
@@ -136,9 +95,65 @@ function onDelete(td) {
   }
 }
 
+const deleteProduct = (productId) => {
+  fetch(`https://amica-a.onrender.com/stocks/${productId}`, {
+    method: 'DELETE'})
+  .then(response => {
+    if (response.ok) {
+      console.log('Product deleted successfully');
+    } else {
+      console.error('Error deleting product');
+    }
+  })
+  .catch(error => {
+    console.error('Error deleting product:', error);
+  });
+};
+
+const updateProduct = (productId, updatedData) => {
+  fetch(`https://amica-a.onrender.com/stocks/${productId}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(updatedData),
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log('Product updated successfully');
+      return response.json(); // Get the updated product data
+    } else {
+      console.error('Error updating product');
+    }
+  })
+  .then(updatedProduct => {
+    updateTableRow(productId, updatedProduct);
+  })
+  .catch(error => {
+    console.error('Error updating product:', error);
+  });
+};
+
+const updateTableRow = (productId, updatedProduct) => {
+  const row = document.querySelector(`[data-id="${productId}"]`);
+  if (row) {
+    row.cells[0].innerHTML = updatedProduct.name;
+    row.cells[1].innerHTML = updatedProduct.type;
+    row.cells[2].innerHTML = updatedProduct.quantity;
+    row.cells[3].innerHTML = updatedProduct.price;
+
+    message.textContent = `${updatedProduct.name} updated!`;
+    message.classList.add('message--display');
+
+    setInterval(() => {
+      message.classList.remove('message--display');
+    }, 600);
+  }
+};
+
 function validate() {
   isValid = true;
-  if (document.getElementById("stock-name").value == "") {
+  if (document.querySelector(".stock-name").value == "") {
     isValid = false;
     document.getElementById("fullNameValidationError").classList.remove("hide");
   } else {
@@ -153,37 +168,14 @@ function validate() {
   return isValid;
 }
 
-// notifications
-// search
+// Search functionality
 document.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.querySelector("#sreach");
+  const searchInput = document.querySelector("#search");
   const tableBody = document.querySelector("#item-list tbody");
-
   const rows = Array.from(tableBody.getElementsByTagName("tr"));
 
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.toLowerCase();
-    const escapedQuery = RegExp.escape(query);
-
-    rows.forEach((row) => {
-      const cells = row.querySelectorAll("td");
-      let found = false;
-
-      cells.forEach((cell) => {
-        const value = cell.textContent.toLowerCase().replace(",", "");
-
-        if (value.search(new RegExp(escapedQuery)) !== -1) {
-          found = true;
-        }
-      });
-
-      if (found) {
-        row.style.display = "";
-      } else {
-        row.style.display = "none";
-      }
-    });
-  });
+  // Fetch and insert data from API
+  fetchDataAndInsert();
 });
 
 // Polyfill for RegExp.escape() method
@@ -193,43 +185,52 @@ if (!RegExp.escape) {
   };
 }
 
-// Consuming API
-// Fetch all stocks
-fetch('https://amica-a.onrender.com/stocks')
-  .then(response => response.json())
-  .then(data => {
-    // Process the data (list of stocks) returned from the API
-    console.log('All Stocks:', data);
-  })
-  .catch(error => {
-    // Handle any errors that occurred during the fetch
-    console.error('Error fetching stocks:', error);
-  });
+// Consume API and insert data
+const fetchDataAndInsert = async () => {
+  try {
+    const response = await fetch('https://amica-a.onrender.com/stocks');
+    const data = await response.json();
 
-// Add a new stock
-const newStock = {
-  name: 'New Stock',
-  type: 'Type',
-  quantity: 10,
-  price: 100.0
+    if (Array.isArray(data)) {
+      insertFormData(data);
+      console.log('All Stocks:', data);
+    }
+  } catch (error) {
+    console.error('Error fetching and inserting stocks:', error);
+  }
 };
 
-fetch('https://amica-a.onrender.com/stocks', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(newStock)
-})
+// Add new stock to API
+const newProduct = () => {
+
+  const newStock = {
+    user:userId,
+    name: stockName.value,
+    type: stockType.value,
+    quantity: stockAmount.value,
+    price: stockPrice.value
+  };
+
+console.log(newStock);
+  fetch(`https://amica-a.onrender.com/stocks/${userId}/add`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newStock)
+  })
   .then(response => {
-    // Handle the response after adding the stock
-    if (response.status === 201) {
+    if (response.ok) {
       console.log('Stock added successfully');
+      return response.json(); // Get the added stock data
     } else {
       console.error('Error adding stock');
     }
   })
+  .then(addedStock => {
+    insertFormData([addedStock]);
+  })
   .catch(error => {
-    // Handle any errors that occurred during the fetch
     console.error('Error adding stock:', error);
   });
+};

@@ -163,13 +163,3 @@ function loggingout() {
   window.location.href = "/signin.html";
 }
 
-fetch("https://amica-a.onrender.com/pf")
-  .then((response) => response.json())
-  .then((data) => {
-    // Do something with the response data
-    console.log(data);
-  })
-  .catch((error) => {
-    // Handle errors
-    console.error("Error:", error);
-  });
