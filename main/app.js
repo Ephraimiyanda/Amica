@@ -66,79 +66,155 @@ window.addEventListener("load", function () {
   preloader.classList.add("hide-preloader");
 });
 document.addEventListener("DOMContentLoaded", () => {
-  const email = localStorage.getItem("email");
-  console.log(email);
-  const storedUsername = localStorage.getItem("username");
-  console.log(storedUsername);
-  userName.textContent = ` Hello ${storedUsername}`;
-  profileName.textContent = storedUsername;
-  profileEmail.textContent = email;
+  const email = localStorage.getItem("User");
+  // console.log(email);
+  const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
+  userName.textContent = ` Hello, ${userId.name}`;
+  profileName.textContent = userId.name;
+  profileEmail.textContent = userId.email;
   const image = localStorage.getItem("profileImage");
   userImage.src = image;
   toggleTImage.src = image;
   notificationImage.src = image;
 });
-// setup
-const data = {
-  labels: [
-    "Jan 2023",
-    "Feb 2023",
-    "Mar 2023",
-    "Apr 2023",
-    "May 2023",
-    "Jun 2023",
-    "July 2023",
-  ],
-  datasets: [
-    {
-      label: "Income",
-      data: [18000, 12000, 60000, 29000, 12000, 30000, 19000],
-      backgroundColor: ["rgba(54, 162, 235, 0.2)"],
-      borderColor: ["rgba(54, 162, 235, 1)"],
-      borderWidth: 1,
-    },
-    {
-      label: "Expense",
-      data: [11000, 2000, 16000, 9000, 10000, 33000, 39000],
-      backgroundColor: ["#2007b4"],
-      borderColor: ["#2007b4"],
-      borderWidth: 1,
-    },
-  ],
-};
-// config
-const config = {
-  type: "bar",
-  data,
-  options: {
-    maintainAspectRatio: false,
-    locale: "en-NG",
-    scales: {
-      y: {
-        ticks: {
-          callback: (value, index, values) => {
-            // return value;
-            return new Intl.NumberFormat("en-NG", {
-              style: "currency",
-              currency: "NGN",
-              maximumSignificantDigits: 3,
-            }).format(value);
+
+
+ async function displayChart () {
+  const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
+  console.log(userId._id);  
+try {
+  const response = await fetch(`https://amica-a.onrender.com/users/${userId._id}/profit`);
+   if(response.ok){
+    const data = await response.json()
+    // console.log(data);
+    const labels = data.map((item) => item.date);
+    const income = data.map((item) => item.totalSales);
+    const expenses = data.map((item) => item.totalExpenses);
+
+    // console.log(values);
+    // Step 3: Set up your Chart.js chart
+    const ctx = document.getElementById("myChart").getContext("2d");
+    const myChart = new Chart(ctx, {
+      // {console.log(values)};
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Income",
+            data: income,
+            backgroundColor: ["rgba(54, 162, 235, 0.2)"],
+            borderColor: ["rgba(54, 162, 235, 1)"],
+            borderWidth: 1,
+          },
+          {
+            label: "Expense",
+            data: expenses,
+            backgroundColor:["#2007b4"],
+            borderColor: ["#2007b4"],
+            borderWidth: 1,
+          }
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        locale: "en-NG",
+        scales: {
+          y: {
+            ticks: {
+              callback: (value, index, values) => {
+                // return value;
+                return new Intl.NumberFormat("en-NG", {
+                  style: "currency",
+                  currency: "NGN",
+                  maximumSignificantDigits: 3,
+                }).format(value);
+              },
+            },
+            beginAtZero: true,
           },
         },
-        beginAtZero: true,
       },
-    },
-  },
-};
-// init
-const myChart = new Chart(document.getElementById("myChart"), config);
+    });
 
+    // Step 4: Render the chart
+    myChart.update();
+   }
+
+} catch (error) {
+  console.log(error)
+}
+  
+
+//   .then((response) => response.json())
+//   .then((data) => {
+//     // Step 2: Parse the data
+//     console.log(data);
+//     const labels = data.map((item) => item.date);
+//     const income = data.map((item) => item.totalSales);
+//     const expenses = data.map((item) => item.totalExpenses);
+
+//     // console.log(values);
+//     // Step 3: Set up your Chart.js chart
+//     const ctx = document.getElementById("myChart").getContext("2d");
+//     const myChart = new Chart(ctx, {
+//       // {console.log(values)};
+//       type: "bar",
+//       data: {
+//         labels: labels,
+//         datasets: [
+//           {
+//             label: "Income",
+//             data: income,
+//             backgroundColor: ["rgba(54, 162, 235, 0.2)"],
+//             borderColor: ["rgba(54, 162, 235, 1)"],
+//             borderWidth: 1,
+//           },
+//           {
+//             label: "Expense",
+//             data: expenses,
+//             backgroundColor:["#2007b4"],
+//             borderColor: ["#2007b4"],
+//             borderWidth: 1,
+//           }
+//         ],
+//       },
+//       options: {
+//         maintainAspectRatio: false,
+//         locale: "en-NG",
+//         scales: {
+//           y: {
+//             ticks: {
+//               callback: (value, index, values) => {
+//                 // return value;
+//                 return new Intl.NumberFormat("en-NG", {
+//                   style: "currency",
+//                   currency: "NGN",
+//                   maximumSignificantDigits: 3,
+//                 }).format(value);
+//               },
+//             },
+//             beginAtZero: true,
+//           },
+//         },
+//       },
+//     });
+
+//     // Step 4: Render the chart
+//     myChart.update();
+//   });
+ }
+
+
+ window.addEventListener('load', displayChart)
 // config
 
 // render init block
 
 // Instantly assign Chart.js version
-const chartVersion = document.getElementById("chartVersion");
+// const chartVersion = document.getElementById("chartVersion");
 // chartVersion.innerText = Chart.version;
 
 // Get the query parameter from the URL
@@ -149,10 +225,6 @@ const messages = urlParams.get("message");
 
 // Use the message as needed
 // Output: User created
-const username = messages.split(":")[1].trim();
-
-// Store the username in Local Storage
-localStorage.setItem("username", username);
 
 // Retrieve the username from Local Storage
 const storedUsername = localStorage.getItem("username");
@@ -165,13 +237,3 @@ function loggingout() {
   window.location.href = "/signin.html";
 }
 
-fetch('https://amica-a.onrender.com/pf')
-  .then(response => response.json())
-  .then(data => {
-    // Do something with the response data
-    console.log(data);
-  })
-  .catch(error => {
-    // Handle errors
-    console.error('Error:', error);
-  });

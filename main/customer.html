@@ -346,8 +346,11 @@
             }
             return isValid;
         }
+        const getuserId = localStorage.getItem("user");
+        const userId = JSON.parse(getuserId);
+
 // Define the URL for the customers endpoint
-const customersUrl = 'https://amica-a.onrender.com/customers';
+const customersUrl = `https://amica-a.onrender.com/customers/${userId}/all`;
 
 // Fetch the customers data
 fetch(customersUrl)
