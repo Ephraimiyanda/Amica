@@ -1,5 +1,4 @@
 const toggleBtn = document.querySelector(".sidebar-toggle");
-const closeBtn = document.querySelector(".close-btn");
 const dashboard = document.querySelector(".dashBoard");
 const profile = document.querySelector(".notification--img");
 const profileClose = document.querySelector(".profile--close");
@@ -13,16 +12,20 @@ const userName = document.querySelector(".username");
 const profileName = document.querySelector(".profile--username");
 const profileEmail = document.querySelector(".profile--email");
 const logout = document.querySelector(".logout");
+const search = document.querySelector("#search");
+const searchBtn = document.querySelector('#searchBtn')
 
-// const setReminderPopup = document.querySelector(".set--reminder--popup");
-// const setReminderClose = document.querySelector(".popup--close--setReminder");
-// const SetreminderSave = document.querySelector(".set--reminder--save");
+// Search
+searchBtn.addEventListener('click', function (e) {
+  const searchValue = search.value.trim();
+  console.log(searchValue);
+})
+
 toggleBtn.addEventListener("click", function () {
   dashboard.classList.toggle("show-sidebar");
+  toggleBtn.classList.toggle('open');
 });
-closeBtn.addEventListener("click", function () {
-  dashboard.classList.remove("show-sidebar");
-});
+
 profile.addEventListener("click", () => {
   mainProfile.classList.toggle("show--profile");
 });
@@ -30,23 +33,32 @@ profileClose.addEventListener("click", () => {
   mainProfile.classList.remove("show--profile");
 });
 logout.addEventListener("click", loggingout);
-file.addEventListener("change", function () {
-  const reader = new FileReader();
 
-  reader.onload = function (event) {
-    const imageDataURL = event.target.result;
+// Pic Upload
+file.addEventListener("change", async function (e) {
+  try {
+    const url = 'https://amica-a.onrender.com/users/64edd2d1881168f1250ecabf/upload-picture';
 
-    // Save the image data URL to local storage
-    localStorage.setItem("profileImage", imageDataURL);
+    const reader = new FormData(document.getElementById("myForm"));
+    reader.append('image', e.target.files[0]);
+    console.log('clickeddd');
 
-    // Set the image source to display the selected image
-    userImage.src = imageDataURL;
-    toggleTImage.src = imageDataURL;
-    notificationImage.src = imageDataURL;
+    const response = await fetch(url, {
+      method: 'POST',
+      body: reader
+    });
+
+    const data = await response.json();
+    if(response.ok) {
+      console.log(data);
+      userImage.src = data;
+    } else {
+      console.log('AN error occured');
+      console.log({err: data});
+    }
+  } catch (err) {
+    console.log(err);
   };
-
-  // Read the selected file as a data URL
-  reader.readAsDataURL(file.files[0]);
 });
 
 const preloader = document.querySelector(".preloader");
