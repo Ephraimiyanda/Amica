@@ -76,8 +76,8 @@ function updaterecord() {
 
 function onDelete(td) {
   const productId = td.parentElement.parentElement.getAttribute('data-id');
-  deleteProduct(productId);
   if (confirm("Are you sure you want to delete this record?")) {
+    deleteProduct(productId);
     row = td.parentElement.parentElement;
     tbody.deleteRow(row.rowIndex - 1, 1);
     resetForm();
@@ -101,8 +101,6 @@ const deleteProduct = (productId) => {
   .then(response => {
     if (response.ok) {
       console.log('Product deleted successfully');
-    } else {
-      console.error('Error deleting product');
     }
   })
   .catch(error => {
