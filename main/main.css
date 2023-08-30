@@ -444,7 +444,7 @@ table * th {
 }
 
 .table--body {
-  max-height: 18rem;
+  max-height: 28rem;
   background-color: #fff;
   margin: 0.8rem auto;
   border-radius: 0.6rem;
@@ -463,6 +463,11 @@ table * th {
 }
 .table--body:hover::-webkit-scrollbar-thumb {
   visibility: visible;
+}
+thead{
+  position: sticky;
+    top: 0;
+    background: white;
 }
 .popup--close {
   cursor: pointer;

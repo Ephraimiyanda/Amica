@@ -341,7 +341,7 @@
     const itemTotal = document.querySelector(".item-total")
     const total = document.querySelector(".total")
     const printbtn = document.querySelector(".invoice-button--2")
-
+    const userId=localStorage.getItem("user")
     const tbody = table.getElementsByTagName("tbody")[0];
     invoiceBtn.addEventListener("click", () => {
       //  ADDEVENTLISTENERS
@@ -552,9 +552,14 @@ const formData = {
   date: date,
   customerprice: customerPrice
 };
-
+fetch(`https://amica-a.onrender.com/invoice/${userId}/all`)
+.then(data=>data.json())
+.then(res=>{
+insertFormData(res)
+})
 // Send a fetch POST request to the /invoice endpoint
-fetch("https://amica-a.onrender.com/invoice", {
+const newInvoice=()=>{
+  fetch(`https://amica-a.onrender.com/invoice/${userId}/add`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -571,6 +576,7 @@ fetch("https://amica-a.onrender.com/invoice", {
     console.error("Error adding invoice:", error);
     // Handle errors here
   });
+}
 
   </script>
 </body>

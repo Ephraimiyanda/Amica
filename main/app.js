@@ -152,8 +152,8 @@ const email = localStorage.getItem("email");
 function loggingout() {
   window.location.href = "/signin.html";
 }
-
-fetch('https://amica-a.onrender.com/pf')
+document.addEventListener("DOMContentLoaded", () => {
+fetch('https://amica-a.onrender.com/sales')
   .then(response => response.json())
   .then(data => {
     // Do something with the response data
@@ -163,3 +163,4 @@ fetch('https://amica-a.onrender.com/pf')
     // Handle errors
     console.error('Error:', error);
   });
+})
