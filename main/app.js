@@ -36,8 +36,11 @@ logout.addEventListener("click", loggingout);
 
 // Pic Upload
 file.addEventListener("change", async function (e) {
+  const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
+  // console.log(userId._id); 
   try {
-    const url = 'https://amica-a.onrender.com/users/64edd2d1881168f1250ecabf/upload-picture';
+    const url = `https://amica-a.onrender.com/users/${userId._id}/upload-picture`;
 
     const reader = new FormData(document.getElementById("myForm"));
     reader.append('image', e.target.files[0]);
@@ -70,7 +73,7 @@ window.addEventListener("load", function () {
 document.addEventListener("DOMContentLoaded", () => {
   const email = localStorage.getItem("email");
   const storedUsername = localStorage.getItem("username");
-  userName.textContent = ` Hello ${storedUsername}`;
+  userName.textContent = ` Hello, ${storedUsername}`;
   profileName.textContent = storedUsername;
   profileEmail.textContent = email;
   const image = localStorage.getItem("profileImage");
@@ -83,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
  async function displayChart () {
   const getuserId = localStorage.getItem("user");
   const userId = JSON.parse(getuserId);
-  console.log(userId._id);  
+  // console.log(userId._id);  
 try {
   const response = await fetch(`https://amica-a.onrender.com/users/${userId._id}/profit`);
    if(response.ok){
@@ -148,63 +151,7 @@ try {
 }
   
 
-//   .then((response) => response.json())
-//   .then((data) => {
-//     // Step 2: Parse the data
-//     console.log(data);
-//     const labels = data.map((item) => item.date);
-//     const income = data.map((item) => item.totalSales);
-//     const expenses = data.map((item) => item.totalExpenses);
 
-//     // console.log(values);
-//     // Step 3: Set up your Chart.js chart
-//     const ctx = document.getElementById("myChart").getContext("2d");
-//     const myChart = new Chart(ctx, {
-//       // {console.log(values)};
-//       type: "bar",
-//       data: {
-//         labels: labels,
-//         datasets: [
-//           {
-//             label: "Income",
-//             data: income,
-//             backgroundColor: ["rgba(54, 162, 235, 0.2)"],
-//             borderColor: ["rgba(54, 162, 235, 1)"],
-//             borderWidth: 1,
-//           },
-//           {
-//             label: "Expense",
-//             data: expenses,
-//             backgroundColor:["#2007b4"],
-//             borderColor: ["#2007b4"],
-//             borderWidth: 1,
-//           }
-//         ],
-//       },
-//       options: {
-//         maintainAspectRatio: false,
-//         locale: "en-NG",
-//         scales: {
-//           y: {
-//             ticks: {
-//               callback: (value, index, values) => {
-//                 // return value;
-//                 return new Intl.NumberFormat("en-NG", {
-//                   style: "currency",
-//                   currency: "NGN",
-//                   maximumSignificantDigits: 3,
-//                 }).format(value);
-//               },
-//             },
-//             beginAtZero: true,
-//           },
-//         },
-//       },
-//     });
-
-//     // Step 4: Render the chart
-//     myChart.update();
-//   });
  }
 
 
