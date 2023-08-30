@@ -424,7 +424,7 @@ main {
     width: 100%;
     margin: 20px 40px 0px 40px;
   }
-  .sidebar-toggle {
+  li.hamburger {
     display: none;
   }
   .close {

@@ -194,6 +194,8 @@ li.hamburger .sidebar-toggle span {
 
 li.hamburger .sidebar-toggle.open span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
+  background-color: white;
+  transition: all .5s ease-in-out;
 }
 
 li.hamburger .sidebar-toggle.open span:nth-child(2) {
@@ -202,6 +204,8 @@ li.hamburger .sidebar-toggle.open span:nth-child(2) {
 
 li.hamburger .sidebar-toggle.open span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
+  background-color: white;
+  transition: all .5s ease-in-out;
 }
 
 .show-sidebar {
@@ -723,7 +727,7 @@ input[type="radio"] {
     grid-column: 2/3;
     grid-row: 2/3;
   }
-  .sidebar-toggle {
+  li.hamburger {
     display: none;
   }
   .close {
