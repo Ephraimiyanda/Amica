@@ -240,7 +240,7 @@ function onFormSubmit() {
         .then(response => response.json())
         .then(newSale => {
             // Close the popup
-            console.log(newSale)
+            console.log()
             salesForm.classList.remove('show--sales');
         })
         .catch(error => {
