@@ -364,11 +364,18 @@ function onFormSubmit() {
 
   // Function to insert fetched expense data into the table
   function insertExpenseData(expense) {
-    let newRow = expensesTable.insertRow(expensesTable.rows.length);
-    const { _id, description, quantity, price } = expense;
+    const months = [
+  "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
+
+    let newRow = table.insertRow(table.rows.length);
+    const { time, _id ,  description, quantity, price } = expense;
+    const day = new Date(time).getDate()
+    const month = new Date(time).getMonth()
+    const year = new Date(time).getFullYear()
+    const date = `${day} ${months[month]} ${year}`
     newRow.innerHTML = `
-      <td>${_id}</td>
+      <td>${date}</td>
       <td>${description}</td>
       <td>${quantity}</td>
       <td>${price}</td>
