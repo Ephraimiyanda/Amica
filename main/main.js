@@ -223,6 +223,7 @@ console.log(newStock);
   .then(response => {
     if (response.ok) {
       console.log('Stock added successfully');
+      location.reload();
       return response.json(); // Get the added stock data
     } else {
       console.error('Error adding stock');
