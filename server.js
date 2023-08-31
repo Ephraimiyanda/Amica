@@ -31,9 +31,6 @@ button.addEventListener("click", (e) => {
     WarningPassword.style.display = "none";
   }
 
-  // Store email and password in Local Storage
-  localStorage.setItem("email", email);
-  localStorage.setItem("password", password);
 
   fetch("https://amica-a.onrender.com/users/login", {
     method: "POST",
@@ -45,19 +42,24 @@ button.addEventListener("click", (e) => {
       password: password,
     }),
   })
-    .then((res) => res.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Request failed with status " + response.status);
+      }
+    })
     .then((data) => {
-      localStorage.setItem("user",data._id)
-
+      localStorage.setItem("user", JSON.stringify({ name: data.name, _id: data._id, email:data.email }));
       const queryParams = new URLSearchParams({
         message: `User created: ${data.name}`,
         email: email,
       }).toString();
       window.location.href = `/main/dashboard.html?${queryParams}`;
     })
-    .catch((err) => {
-      console.log(err);
+    .catch((error) => {
+      console.error(error);
       WarningPassword.style.display = "block";
       WarningPassword.textContent = "Wrong password";
     });
-});
+  })  

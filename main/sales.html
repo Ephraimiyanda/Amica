@@ -21,7 +21,13 @@
     </div>
     <header>
         <div class="header--menu">
-            <img src="/images/fluent_navigation-16-filled (1).png" alt="menu" class="sidebar-toggle" />
+            <li class="hamburger">
+              <div class="sidebar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </li>
 
             <div class="header--info">
                 <h3>Sales</h3>
@@ -40,8 +46,8 @@
         </div>
         </div>
         <div class="header--sreach">
-            <img src="/images/ic_round-search.png" alt="sreach" width="40px" />
-            <input type="search" name="sreach" id="sreach" placeholder="search" />
+            <img src="/images/ic_round-search.png" id="searchBtn" alt="search" width="40px" />
+            <input type="search" name="sreach" id="search" placeholder="search" />
             <div class="header--addstock">
                 <button class="sales">New Sale</button>
             </div>
@@ -53,7 +59,6 @@
     </header>
     <aside>
         <div class="dashBoard">
-            <div class="close close-btn"><img src="/images/Close_MD.svg" alt=""></div>
 
             <div class="dashboard--logo">
                 <img src="/images/amicafulllogo.svg" alt="logo" />
@@ -117,7 +122,7 @@
                 <div class="popoup--head">
                     <img src="/images/Close_MD2.png" alt="" class="salespopup--close">
                 </div>
-                <h2 id="popup-title">New Stock</h2>
+                <h2 id="popup-title">New Sale</h2>
                 <label for="stock-name">Add name*</label><label class="validation-error hide--sales"
                     id="fullNameValidationError"> this
                     field is requried</label>
@@ -133,16 +138,6 @@
                 <label for="sales-quantity">
                     Add quantity
                     <input type="text" id="sales-quantity" name="sales-quantity">
-                </label>
-
-                <label for="sales-price">
-                    Add Price
-                    <input type="number" id="sales-price" name="sales-price">
-                </label>
-
-                <label for="date">
-                    Date
-                    <input type="date" id="date" name="date">
                 </label>
                 <input id=" " type="submit" value="submit" class="sales-save">
             </form>
@@ -230,16 +225,17 @@
         })
 
 function onFormSubmit() {
-
+    const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
     const salesInfo= {
-            
+            user:userId._id,
             name :document.getElementById("sales-name").value,
-            quantity: document.getElementById("sales-quantity").value,
-            price: document.getElementById("sales-price").value,           
+            type:document.getElementById("sales-type").value,
+            quantity: parseInt(document.getElementById("sales-quantity").value),           
         }
-        console.log(salesInfo);
+        // console.log(salesInfo);
         // Make a POST request to the API endpoint
-        fetch(`https://amica-a.onrender.com/sales/${userId}/add`, {
+        fetch(`https://amica-a.onrender.com/sales/${userId._id}/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -249,6 +245,7 @@ function onFormSubmit() {
         .then(response => response.json())
         .then(newSale => {
             // Close the popup
+            console.log()
             salesForm.classList.remove('show--sales');
         })
         .catch(error => {
@@ -320,10 +317,13 @@ function validate() {
   // DOM elements
   const salesTable = document.getElementById('tbody');
 
+  const getuserId = localStorage.getItem("user");
+  const userid = JSON.parse(getuserId);
   // Fetch all sales
-  fetch(`https://amica-a.onrender.com/sales`)
+  fetch(`https://amica-a.onrender.com/sales/${userid._id}/all`)
     .then(response => response.json())
     .then(sales => {
+        console.log(sales)
       // Process the fetched sales data
       sales.forEach(sale => {
         insertSaleData(sale);
