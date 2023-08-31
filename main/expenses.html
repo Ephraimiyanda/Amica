@@ -212,7 +212,8 @@
         const salesSaveBtn = document.querySelector(".sales-save")
         const table = document.getElementById("sales-list")
         const form = document.querySelector(".popup")
-
+        const getuserId = localStorage.getItem("user");
+        const userId = JSON.parse(getuserId);
         const tbody = table.getElementsByTagName("tbody")[0];
         salesBtn.addEventListener("click", () => {
 
@@ -233,19 +234,48 @@
         salesData.forEach((data) => {
             insertFormData(data);
         });
-        function onFormSubmit() {
-            if (validate()) {
-                let salesinfo = readFormData();
-                insertFormData(salesinfo);
 
-                resetForm();
-                salesForm.classList.remove("show--sales");
-                // save to local storage
-                const salesData = JSON.parse(localStorage.getItem("salesData")) || [];
-                salesData.push(salesinfo);
-                localStorage.setItem("salesData", JSON.stringify(salesData));
-            }
-        }
+
+        // Update the onFormSubmit function to send a POST request for adding an expense
+function onFormSubmit() {
+
+    if (validate()) {
+        const expenseData = {
+            description:"lmao",
+            name: document.getElementById("sales-name").value,
+            type: document.getElementById("sales-type").value,
+            quantity: parseFloat(document.getElementById("sales-quantity").value),
+            price: parseFloat(document.getElementById("sales-price").value),
+            userId: userId._id // Add the user ID
+        };
+
+        addExpense(expenseData);
+    }
+}
+
+
+    
+// Function to add an expense via API
+    function addExpense(expenseData) {
+    fetch(`https://amica-a.onrender.com/expenses/${userId._id}/add`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(expenseData),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            // Add the added expense to the UI
+            insertExpenseData(data);
+            resetForm();
+            salesForm.classList.remove("show--sales");
+        })
+        .catch((error) => {
+            console.error("Error adding expense:", error);
+        });
+}
         function readFormData() {
             let salesinfo = {};
             salesinfo["salesname"] = document.getElementById("sales-name").value;
@@ -321,6 +351,7 @@
   fetch(`https://amica-a.onrender.com/expenses/${userId._id}/all`)
     .then(response => response.json())
     .then(expenses => {
+        console.log(expenses);
       // Process the fetched expenses data
       expenses.forEach(expense => {
         // Populate your UI with the fetched expense data

@@ -347,6 +347,8 @@
   const total = document.querySelector(".total");
   const printbtn = document.querySelector(".invoice-button--2");
   const tbody = table.getElementsByTagName("tbody")[0];
+  const getuserId = localStorage.getItem("user");
+  const userId = JSON.parse(getuserId);
   invoiceBtn.addEventListener("click", () => {
     //  ADDEVENTLISTENERS
     InvoiceAdd.classList.add("show--popup--invoice");
@@ -378,20 +380,30 @@
 
   function onFormSubmit() {
     if (validate()) {
-      let formData = readFormData();
+      const formData={
+     customer_name: document.getElementById("customer-name").value,
+     items:document.getElementById("customer-item").value,
+     time: document.getElementById("date").value,
+     price:parseFloat(document.getElementById("customer-price").value),
+    
+      }
+      console.log(formData);
       insertFormData(formData);
-      generateId();
-      resetForm();
+      
       InvoiceAdd.classList.remove("show--popup--invoice");
       // Send a fetch POST request to the /invoice endpoint
-      fetch("https://amica-a.onrender.com/invoice/add", {
+      fetch(`https://amica-a.onrender.com/invoices/${userId._id}/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       })
-        .then((response) => response.json())
+        .then((response) => {
+          if(response.ok){
+          resetForm()
+          return response.json()
+        }})
         .then((data) => {
           // Handle the response data if needed
           console.log("Invoice added:", data);
@@ -404,14 +416,7 @@
     }
   }
 
-  function readFormData() {
-    let formData = {};
-    formData["customername"] = document.getElementById("customer-name").value;
-    formData["customeritem"] = document.getElementById("customer-item").value;
-    formData["date"] = document.getElementById("date").value;
-    formData["customerprice"] = document.getElementById("customer-price").value;
-    return formData;
-  }
+
 
   function insertFormData(data) {
     let newRow = tbody.insertRow(tbody.length);
@@ -420,7 +425,11 @@
     cell2 = newRow.insertCell(1);
     cell2.innerHTML = data.items;
     cell3 = newRow.insertCell(2);
-    cell3.innerHTML = data.date;
+    cell3.innerHTML = new Date(data.time).toDateString() +" "+
+        new Date(data.time).toLocaleTimeString([], {
+                  hour: "numeric",
+                  minute: "2-digit",
+                });
     cell4 = newRow.insertCell(3);
     cell4.innerHTML = data.price;
     cell5 = newRow.insertCell(4);
@@ -446,8 +455,12 @@
 
       // Send a fetch DELETE request to the /invoice endpoint
       const invoiceId = row.cells[5].textContent;
-      fetch(`https://amica-a.onrender.com/invoice/${invoiceId}/delete`, {
+      fetch(`https://amica-a.onrender.com/invoices/${invoiceId}/delete`, {
         method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(invoiceId),
       })
         .then((response) => {
           if (response.ok) {
@@ -578,14 +591,11 @@
     printWindow.document.close();
     printWindow.print();
   }
-  const getuserId = localStorage.getItem("user");
-  const userId = JSON.parse(getuserId);
   // Fetch data from the URL and populate the table
   fetch(`https://amica-a.onrender.com/invoices/${userId._id}/all`)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((invoice) => {
-        console.log(invoice)
         insertFormData(invoice);
       });
     })

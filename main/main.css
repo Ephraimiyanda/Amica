@@ -115,7 +115,7 @@ header {
 }
 /* dashbord */
 .dashBoard {
-  width: 40%;
+  width: 60%;
   position: absolute;
   top: 0px;
   background: radial-gradient(at top right, #0b1682, #4d57bf);
