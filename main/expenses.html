@@ -104,7 +104,7 @@
             <table class="list" id="sales-list">
                 <thead>
                     <tr>
-                        <th>DATE</th>
+                        <!-- <th>DATE</th> -->
                         <th>DESCRIPTION</th>
                         <th>QUANTITY</th>
                         <th>PRICE</th>
@@ -266,9 +266,9 @@ function onFormSubmit() {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             // Add the added expense to the UI
-            insertExpenseData(data);
+            // insertExpenseData(data);
             resetForm();
             salesForm.classList.remove("show--sales");
         })
@@ -308,7 +308,7 @@ function onFormSubmit() {
             document.getElementById("sales-type").value = "";
             document.getElementById("sales-price").value = "";
             document.getElementById("date").value = "";
-
+            location.reload()
 
         }
         function onDelete(td) {
@@ -369,14 +369,13 @@ function onFormSubmit() {
 
 
     let newRow = table.insertRow(table.rows.length);
-    const { time, _id ,  description, quantity, price } = expense;
+    const { time, _id ,  name, quantity, price } = expense;
     const day = new Date(time).getDate()
     const month = new Date(time).getMonth()
     const year = new Date(time).getFullYear()
     const date = `${day} ${months[month]} ${year}`
     newRow.innerHTML = `
-      <td>${date}</td>
-      <td>${description}</td>
+      <td>${name}</td>
       <td>${quantity}</td>
       <td>${price}</td>
       <td>
@@ -385,8 +384,9 @@ function onFormSubmit() {
     `;
   }
 
-  // Function to delete an expense
-  function deleteExpense(expenseId) {
+});
+// Function to delete an expense
+function deleteExpense(expenseId) {
     if (confirm('Are you sure you want to delete this expense?')) {
       fetch(`https://amica-a.onrender.com/expenses/${expenseId}`, {
         method: 'DELETE'
@@ -394,6 +394,7 @@ function onFormSubmit() {
         .then(response => response.json())
         .then(data => {
           console.log(data); // Data indicating that expense was deleted
+          resetForm()
           // Remove the deleted expense from the UI
           const rowToDelete = document.querySelector(`[data-id="${expenseId}"]`);
           if (rowToDelete) {
@@ -405,8 +406,6 @@ function onFormSubmit() {
         });
     }
   }
-});
-
     </script>
 </body>
 
