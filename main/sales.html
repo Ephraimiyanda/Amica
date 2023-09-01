@@ -117,7 +117,7 @@
         </div>
         <!-- popup -->
         <div class="popup-container--sales">
-            <form class="popup" onsubmit="onFormSubmit()">
+            <form class="popup">
                 <div class="popoup--head">
                     <img src="/images/Close_MD2.png" alt="" class="salespopup--close">
                 </div>
@@ -208,7 +208,6 @@
         const userId=localStorage.getItem("user")
 
         salesBtn.addEventListener("click", () => {
-
             salesForm.classList.add("show--sales");
 
         });
@@ -217,41 +216,45 @@
             salesForm.classList.remove("show--sales");
         });
 
+salesForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    onFormSubmit();
+});
 
-        salesForm.addEventListener('submit', (e)=>{
-            e.preventDefault();
-            onFormSubmit();
-        })
+function onFormSubmit() {
+    const getuserId = localStorage.getItem("user");
+    const userId = JSON.parse(getuserId);
+    const salesInfo = {
+        user: userId._id,
+        name: document.getElementById("sales-name").value,
+        type: document.getElementById("sales-type").value,
+        quantity: parseInt(document.getElementById("sales-quantity").value),
+    };
+    console.log(salesInfo);
+    // Disable the submit button to prevent multiple submissions
+    salesForm.querySelector(".sales-save").disabled = true;
+    // Make a POST request to the API endpoint
+    fetch(`https://amica-a.onrender.com/sales/${userId._id}/add`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(salesInfo)
+    })
+    .then(response => response.json())
+    .then(newSale => {
+        // Close the popup
+        location.reload();
+        salesForm.classList.remove('show--sales');
+    })
+    .catch(error => {
+        console.error('Error adding new sale:', error);
+        // Re-enable the submit button in case of an error
+        salesForm.querySelector(".sales-save").disabled = false;
+    });
+}
 
-        function onFormSubmit() {
-            const getuserId = localStorage.getItem("user");
-            const userId = JSON.parse(getuserId);
-            const salesInfo= {
-                user:userId._id,
-                name :document.getElementById("sales-name").value,
-                type:document.getElementById("sales-type").value,
-                quantity: parseInt(document.getElementById("sales-quantity").value),           
-            }
-            // console.log(salesInfo);
-            // Make a POST request to the API endpoint
-            fetch(`https://amica-a.onrender.com/sales/${userId._id}/add`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(salesInfo)
-            })
-            .then(response => response.json())
-            .then(newSale => {
-                // Close the popup
-                location.reload();
-                salesForm.classList.remove('show--sales');
-            })
-            .catch(error => {
-                console.error('Error adding new sale:', error);
-            });
-        
-        }
+
 
 
         function validate() {
