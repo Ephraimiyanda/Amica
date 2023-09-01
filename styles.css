@@ -303,7 +303,7 @@ input[type="checkbox"] {
     margin: 10px 0px 20px 0px;
   }
   .login {
-    width: 90%;
+    width: 100%;
     padding: 1.5rem 5rem;
   }
  
@@ -315,7 +315,7 @@ input[type="checkbox"] {
     margin-left: auto;
   }
   .swiper {
-    width: 50%;
+    width: 100%;
   }
   #instruction {
     margin-top: 0.625rem;
