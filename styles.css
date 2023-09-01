@@ -303,8 +303,10 @@ input[type="checkbox"] {
     margin: 10px 0px 20px 0px;
   }
   .login {
+    width: 100%;
     padding: 1.5rem 5rem;
   }
+ 
   .d-flex {
     justify-content: left;
     margin-top: 5px;
@@ -313,13 +315,14 @@ input[type="checkbox"] {
     margin-left: auto;
   }
   .swiper {
-    width: 50%;
+    width: 100%;
   }
   #instruction {
     margin-top: 0.625rem;
   }
   .sign-up {
-    width: 50%;
+    margin: auto;
+    width: 100%;
     background-color: #fff;
     display: block;
     height: 100%;

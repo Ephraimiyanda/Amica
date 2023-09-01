@@ -35,9 +35,7 @@ body {
 a {
   color: inherit;
 }
-.sign-up {
-  width: 100%;
-}
+
 /************************ sign up ************************************/
 
 .login {
@@ -45,6 +43,7 @@ a {
   padding: 1.5rem 1.87rem;
   color: var(--text-color);
   font-size: 0.9rem;
+  width: 50%;
 }
 .login-header {
   margin: 1.25rem 0rem;
@@ -187,7 +186,9 @@ input[type="checkbox"] {
 }
 
 /****************************** swiper *****************************/
-
+.swiper{
+  display: block;
+}
 .swiper-slide > .slider {
   padding: 4rem;
   display: flex;
@@ -397,7 +398,9 @@ p {
   z-index: -999;
   visibility: hidden;
 }
-
+.login{
+  width: 100%;
+}
 @media screen and (min-width: 25rem) {
   .login {
     padding: 1.5rem;
@@ -425,12 +428,6 @@ p {
   .container {
     display: flex;
   }
-  .swiper {
-    background: var(--bg-gradient);
-
-    width: 50%;
-    height: 145%;
-  }
 
   button {
     width: 100%;
@@ -457,15 +454,15 @@ p {
     margin-left: auto;
   }
   .swiper {
-    width: 50%;
+    width: 100%;
   }
   #instruction {
     margin-top: 0.625rem;
   }
   .sign-up {
-    width: 50%;
+    width: 100%;
     background-color: #fff;
-    display: block;
+    display: flex;
     height: 100%;
   }
 
@@ -522,5 +519,17 @@ p {
 
   .swiper-slide > .slider {
     padding: 5rem 8rem;
+  }
+}
+
+@media (max-width:790px) {
+  .swiper{
+    display: none;
+  }
+  .sign-up{
+    display: flex;
+  }
+  .login{
+    width: 100%;
   }
 }
