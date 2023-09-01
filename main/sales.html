@@ -230,7 +230,6 @@ function onFormSubmit() {
         type: document.getElementById("sales-type").value,
         quantity: parseInt(document.getElementById("sales-quantity").value),
     };
-    console.log(salesInfo);
     // Disable the submit button to prevent multiple submissions
     salesForm.querySelector(".sales-save").disabled = true;
     // Make a POST request to the API endpoint
