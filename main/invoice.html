@@ -101,7 +101,7 @@
             <tr>
               <th>Customer</th>
               <th>item(s)</th>
-              <th>Date</th>
+              <!-- <th>Date</th> -->
               <th>Price</th>
               <th>Generate</th>
               <th>Id</th>
@@ -141,7 +141,7 @@
             Add Price
             <input type="number" id="customer-price" name="customer-price" class="stock__input">
           </label>
-          <input class="invoice--save" id="popup-btn" type="submit" value="submit">
+          <input class="invoice--save" id="popup-btn" type="submit" value="Submit">
         </form>
 
 
@@ -425,19 +425,19 @@
     cell2 = newRow.insertCell(1);
     cell2.innerHTML = data.items;
     cell3 = newRow.insertCell(2);
-    cell3.innerHTML = new Date(data.time).toDateString() +" "+
-        new Date(data.time).toLocaleTimeString([], {
-                  hour: "numeric",
-                  minute: "2-digit",
-                });
+    // cell3.innerHTML = new Date(data.time).toDateString() +" "+
+    //     new Date(data.time).toLocaleTimeString([], {
+    //               hour: "numeric",
+    //               minute: "2-digit",
+    //             });
+    // cell4 = newRow.insertCell(3);
+    cell3.innerHTML = data.price;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = data.price;
+    cell4.innerHTML = `<button onClick="generate()" class="invoice--generate"> generate </button`;
     cell5 = newRow.insertCell(4);
-    cell5.innerHTML = `<button onClick="generate()" class="invoice--generate"> generate </button`;
+    cell5.innerHTML = data.id;
     cell6 = newRow.insertCell(5);
-    cell6.innerHTML = data.id;
-    cell7 = newRow.insertCell(6);
-    cell7.innerHTML = `<img onClick="onDelete(this)" src="/images/Close_MD2.png" alt="" class="popup--close">`;
+    cell6.innerHTML = `<img onClick="onDelete(this)" src="/images/Close_MD2.png" alt="" class="popup--close">`;
   }
 
   function resetForm() {
@@ -445,13 +445,13 @@
     document.getElementById("customer-item").value = "";
     document.getElementById("date").value = "";
     document.getElementById("customer-price").value = "";
+    location.reload()
   }
 
   function onDelete(td) {
     if (confirm("Are you sure you want to delete this record?")) {
       row = td.parentElement.parentElement;
       tbody.deleteRow(row.rowIndex - 1, 1);
-      resetForm();
 
       // Send a fetch DELETE request to the /invoice endpoint
       const invoiceId = row.cells[5].textContent;
@@ -465,6 +465,7 @@
         .then((response) => {
           if (response.ok) {
             console.log("Invoice deleted successfully");
+            resetForm();
           } else {
             console.error("Error deleting invoice");
           }

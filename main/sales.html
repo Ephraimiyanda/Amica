@@ -109,7 +109,6 @@
                         <th>NAME</th>
                         <th>QUANTITY</th>
                         <th>PRICE</th>
-                        <th>DATE</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -139,7 +138,7 @@
                     Add quantity
                     <input type="text" id="sales-quantity" name="sales-quantity">
                 </label>
-                <input id=" " type="submit" value="submit" class="sales-save">
+                <input id=" " type="submit" value="Submit" class="sales-save">
             </form>
 
 
@@ -224,38 +223,38 @@
             onFormSubmit();
         })
 
-function onFormSubmit() {
-    const getuserId = localStorage.getItem("user");
-  const userId = JSON.parse(getuserId);
-    const salesInfo= {
-            user:userId._id,
-            name :document.getElementById("sales-name").value,
-            type:document.getElementById("sales-type").value,
-            quantity: parseInt(document.getElementById("sales-quantity").value),           
+        function onFormSubmit() {
+            const getuserId = localStorage.getItem("user");
+            const userId = JSON.parse(getuserId);
+            const salesInfo= {
+                user:userId._id,
+                name :document.getElementById("sales-name").value,
+                type:document.getElementById("sales-type").value,
+                quantity: parseInt(document.getElementById("sales-quantity").value),           
+            }
+            // console.log(salesInfo);
+            // Make a POST request to the API endpoint
+            fetch(`https://amica-a.onrender.com/sales/${userId._id}/add`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(salesInfo)
+            })
+            .then(response => response.json())
+            .then(newSale => {
+                // Close the popup
+                location.reload();
+                salesForm.classList.remove('show--sales');
+            })
+            .catch(error => {
+                console.error('Error adding new sale:', error);
+            });
+        
         }
-        // console.log(salesInfo);
-        // Make a POST request to the API endpoint
-        fetch(`https://amica-a.onrender.com/sales/${userId._id}/add`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(salesInfo)
-        })
-        .then(response => response.json())
-        .then(newSale => {
-            // Close the popup
-            console.log()
-            salesForm.classList.remove('show--sales');
-        })
-        .catch(error => {
-            console.error('Error adding new sale:', error);
-        });
-    
-}
 
 
-function validate() {
+        function validate() {
             isValid = true;
             if (document.getElementById("sales-name").value == "") {
                 isValid = false;
@@ -274,7 +273,7 @@ function validate() {
 
         // search
         document.addEventListener("DOMContentLoaded", () => {
-            const searchInput = document.querySelector("#sreach");
+            const searchInput = document.querySelector("#search");
             const tableBody = document.getElementById("tbody");
 
 
@@ -314,67 +313,61 @@ function validate() {
 
 
         document.addEventListener('DOMContentLoaded', () => {
-  // DOM elements
-  const salesTable = document.getElementById('tbody');
+            // DOM elements
+            const salesTable = document.getElementById('tbody');
 
-  const getuserId = localStorage.getItem("user");
-  const userid = JSON.parse(getuserId);
-  // Fetch all sales
-  fetch(`https://amica-a.onrender.com/sales/${userid._id}/all`)
-    .then(response => response.json())
-    .then(sales => {
-        console.log(sales)
-      // Process the fetched sales data
-      sales.forEach(sale => {
-        insertSaleData(sale);
-      });
-    })
-    .catch(error => {
-      console.error('Error fetching sales:', error);
-    });
-
-  // Function to insert fetched sale data into the table
-  function insertSaleData(sale) {
-    let newRow = salesTable.insertRow(salesTable.rows.length);
-    const { _id, name, quantity, price,time } = sale;
-    newRow.setAttribute("data-id",_id)
-    newRow.innerHTML = `
-     
-      <td>${name}</td>
-      <td>${quantity}</td>
-      <td>${price}</td>
-      <td>${
-        new Date(time).toDateString() +" "+
-        new Date(time).toLocaleTimeString([], {
-                  hour: "numeric",
-                  minute: "2-digit",
-                })}</td>
-      <td>
-        <img onClick="deleteSale(${_id})" src="/images/Close_MD2.png" alt="" class="popup--close">
-      </td>
-    `;
-  }
-
-  // Function to delete a sale
-  function deleteSale(saleId) {
-            if (confirm('Are you sure you want to delete this sale?')) {
-                fetch(`https://amica-a.onrender.com/sales/${saleId}`, {
-                    method: 'DELETE'
-                })
+            const getuserId = localStorage.getItem("user");
+            const userid = JSON.parse(getuserId);
+            // Fetch all sales
+            fetch(`https://amica-a.onrender.com/sales/${userid._id}/all`)
                 .then(response => response.json())
-                .then(data => {
-                    const rowToDelete = document.querySelector(`[data-id="${saleId}"]`);
-                    if (rowToDelete) {
-                        rowToDelete.remove();
-                    }
+                .then(sales => {
+                    console.log(sales)
+                    // Process the fetched sales data
+                    sales.forEach(sale => {
+                        insertSaleData(sale);
+                    });
                 })
                 .catch(error => {
-                    console.error('Error deleting sale:', error);
+                    console.error('Error fetching sales:', error);
                 });
-            }
-        }
-});
 
+            // Function to insert fetched sale data into the table
+            function insertSaleData(sale) {
+                let newRow = salesTable.insertRow(salesTable.rows.length);
+                const { _id, name, quantity, price, time } = sale;
+                newRow.setAttribute("data-id", _id)
+                newRow.innerHTML = `
+                    <td>${name}</td>
+                    <td>${quantity}</td>
+                    <td>${price}</td>
+                    <td>
+                        <img onClick="deleteSale('${_id}')" src="/images/Close_MD2.png" alt="" class="popup--close">
+                    </td>
+                `;
+            }
+
+            
+        });
+        // Function to delete a sale
+        function deleteSale(saleId) {
+                if (confirm('Are you sure you want to delete this sale?')) {
+                    fetch(`https://amica-a.onrender.com/sales/${saleId}`, {
+                        method: 'DELETE'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            const rowToDelete = document.querySelector(`[data-id="${saleId}"]`);
+                            console.log('Succes');
+                            if (rowToDelete) {
+                                rowToDelete.remove();
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error deleting sale:', error);
+                        });
+                }
+            }
     </script>
 </body>
 

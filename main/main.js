@@ -74,13 +74,16 @@ function updaterecord() {
   popup.classList.remove('show--popup');
 }
 
+const resetForm = () => {
+  location.reload()
+}
+
 function onDelete(td) {
   const productId = td.parentElement.parentElement.getAttribute('data-id');
   if (confirm("Are you sure you want to delete this record?")) {
     deleteProduct(productId);
     row = td.parentElement.parentElement;
     tbody.deleteRow(row.rowIndex - 1, 1);
-    resetForm();
 
     // Remove data from localStorage
     const savedData = JSON.parse(localStorage.getItem("mydata")) || [];
@@ -101,6 +104,7 @@ const deleteProduct = (productId) => {
   .then(response => {
     if (response.ok) {
       console.log('Product deleted successfully');
+      resetForm();
     }
   })
   .catch(error => {

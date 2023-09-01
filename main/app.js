@@ -35,6 +35,19 @@ profileClose.addEventListener("click", () => {
 logout.addEventListener("click", loggingout);
 
 // Pic Upload
+    window.addEventListener('DOMContentLoaded', () => {
+      const getuserId = localStorage.getItem("user");
+      const userId = JSON.parse(getuserId);
+      fetch(`https://amica-a.onrender.com/users/${userId._id}/get-image`)
+        .then((res) => res.json())
+        .then((data) => {
+          const imgDatastored = data
+          localStorage.setItem("profileImage", imgDatastored);          
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
 file.addEventListener("change", async function (e) {
   const getuserId = localStorage.getItem("user");
   const userId = JSON.parse(getuserId);
