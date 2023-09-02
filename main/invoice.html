@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="header--notification">
-        <a href="/main/notification.html"> <img src="/images/notification.svg" alt="" /></a>
+      <a href="/main/notification.html"> <img src="/images/notification.svg" alt="" /></a>
         <img src="/images/blank-profile-picture-973460_1280.webp" class="notification--img">
       </div>
     </div>
@@ -131,12 +131,6 @@
             Add item(s)
             <input type="text" id="customer-item" name="customer-item" class="stock__input">
           </label>
-
-          <label for="stock-amount">
-            Add Date
-            <input type="date" id="date" name="date" class="stock__input">
-          </label>
-
           <label for="stock-price">
             Add Price
             <input type="number" id="customer-price" name="customer-price" class="stock__input">
@@ -160,7 +154,8 @@
               <table>
                 <tr>
                   <td class="title">
-                    <h3 contenteditable="true">insert company logo</h3>
+                    <img src="/images/Amica-logo.svg" alt="">
+                    <h3 contenteditable="true" id="name"></h3>
                   </td>
 
 
@@ -332,6 +327,7 @@
 
    <script>
   // GET ELEMENTS
+  const nameOfUser = document.getElementById('name')
   const InvoiceAdd = document.querySelector(".invoice--popup");
   const invoiceBtn = document.querySelector(".add--invoice");
   const invoiceCloseBtn = document.querySelector(".invoice--popup--close");
@@ -349,6 +345,9 @@
   const tbody = table.getElementsByTagName("tbody")[0];
   const getuserId = localStorage.getItem("user");
   const userId = JSON.parse(getuserId);
+
+nameOfUser.textContent = userId.name
+
   invoiceBtn.addEventListener("click", () => {
     //  ADDEVENTLISTENERS
     InvoiceAdd.classList.add("show--popup--invoice");
