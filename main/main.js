@@ -230,7 +230,7 @@ console.log(newStock);
       location.reload();
       return response.json(); // Get the added stock data
     } else {
-      console.error('Error adding stock');
+      console.error('Error adding stock',response.json());
     }
   })
   .then(addedStock => {
