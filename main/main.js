@@ -105,6 +105,7 @@ const deleteProduct = (productId) => {
     if (response.ok) {
       console.log('Product deleted successfully');
       resetForm();
+      location.reload();
     }
   })
   .catch(error => {

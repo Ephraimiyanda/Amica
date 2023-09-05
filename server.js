@@ -43,10 +43,11 @@ button.addEventListener("click", (e) => {
     }),
   })
     .then((response) => {
+      // let data = response.json()
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error("Request failed with status " + response.status);
+        throw new Error("Request failed with status " + response.status );
       }
     })
     .then((data) => {

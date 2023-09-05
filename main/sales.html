@@ -361,6 +361,7 @@
                             console.log('Succes');
                             if (rowToDelete) {
                                 rowToDelete.remove();
+                                location.reload();
                             }
                         })
                         .catch(error => {
