@@ -423,7 +423,7 @@ main {
   main {
     grid-column: 2/3;
     grid-row: 2/3;
-    width: 100%;
+    /* width: 100%; */
     margin: 20px 40px 0px 40px;
   }
   li.hamburger {
@@ -484,7 +484,7 @@ main {
     cursor: pointer;
   }
 }
-@media screen and (min-width: 62rem) {
+/* @media screen and (min-width: 62rem) {
   .revenue {
     min-height: 200px;
   }
@@ -496,4 +496,4 @@ main {
     top: 45%;
     cursor: pointer;
   }
-}
+} */
