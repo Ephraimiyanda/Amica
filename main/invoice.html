@@ -160,9 +160,11 @@
 
 
                   <td>
-                    <h3>Invoice #:</h3>
-                    <span class="invoice-id"></span><br />
-                    <h3>Created: date:</h3> <span class="invoice--date"></span><br />
+                    <div class="invoiceId">
+                      <h3 >Invoice #: </h3>
+                      <span class="invoice-id"id="invoiceId">hhhh</span><br />
+                    </div>
+                    <h3 id="date">Created date:</h3> <span class="invoice--date"></span><br />
 
                   </td>
                 </tr>
@@ -177,12 +179,7 @@
                   <td>
                     <h3>location of store </h3>
                     <p contenteditable="true"> click to edit</p>
-
                   </td>
-
-                  <td>
-                    <h3>phone number </h3>
-                    <p contenteditable="true"> click to edit</p>
                 </tr>
               </table>
             </td>
@@ -201,7 +198,7 @@
                 <option value="transfer">transfer</option>
               </select></td>
 
-            <td contenteditable="true">1000</td>
+            <td contenteditable="true" id="amount">1000</td>
           </tr>
 
           <tr class="heading">
@@ -209,52 +206,34 @@
 
             <td>Price</td>
           </tr>
-
           <tr class="item">
-            <td><input type="text" placeholder="items" class="item-input"></td>
+            <td><p class="item-input" id="item"></p>
+            </td>
 
-            <td><input type="number" placeholder="price" class="item-price"></td>
-          </tr>
-          <tr class="item">
-            <td><input type="text" placeholder="items" class="item-input"></td>
-
-            <td><input type="number" placeholder="price" class="item-price"></td>
-          </tr>
-          <tr class="item">
-            <td><input type="text" placeholder="items" class="item-input"></td>
-
-            <td><input type="number" placeholder="price" class="item-price"></td>
-          </tr>
-          <tr class="item">
-            <td><input type="text" placeholder="items" class="item-input"></td>
-
-            <td><input type="number" placeholder="price" class="item-price"></td>
-          </tr>
-          <tr class="item">
-            <td><input type="text" placeholder="items" class="item-input"></td>
-
-            <td><input type="number" placeholder="price" class="item-price"></td>
+            <td><p class="item-price" id="price"></p></td>
           </tr>
 
           <tr class="total">
             <td></td>
 
-            <td> <button class="total">Total:</button>
-              <p class="item-total">item-total</p>
+            <td> <p class="total">Total:</p>
+              <p class="item-total" id="total"></p>
             </td>
 
           </tr>
           <tr>
-            <td>company signature:</td>
+            <td>
+              <p>company signature:</p>
+              <span class="amica">Amica Innovations</span>
+            </td>
             <td>
               <div class="profile-insert">
                 <input type="file" id="file" accept="image/jpeg, image/png, image/jpg">
                 <label for="file">
-                  <div class="signature-input">insert your signature</div>
+                  <div class="signature-input">insert your signature  here</div>
+                  <div class="profile--top">
+                  </div>
                 </label>
-                <div class="profile--top">
-                  <img src="/images/download2.jfif" width="10rem" height="4rem" class="signature--pic profile--pic">
-                </div>
             </td>
           </tr>
         </table>
@@ -271,7 +250,7 @@
         <input type="file" id="file" accept="image/jpeg, image/png, image/jpg">
         <label for="file"><img src="/images/icons8-cameras-48.png" alt="" class="profile-input"></label>
         <div class="profile--top">
-          <img src="/images/blank-profile-picture-973460_1280.webp" class="profile--pic">
+          <!-- <img src="/images/blank-profile-picture-973460_1280.webp" class="profile--pic"> -->
         </div>
         <div>
           <h3 class="profile--username ">Deborah Allen</h3>
@@ -315,6 +294,7 @@
 
    <script>
   // GET ELEMENTS
+  
   const nameOfUser = document.getElementById('name')
   const InvoiceAdd = document.querySelector(".invoice--popup");
   const invoiceBtn = document.querySelector(".add--invoice");
@@ -326,10 +306,15 @@
   const invoiceReceipt = document.querySelector(".invoice-box");
   const invoiceId = document.querySelector(".invoice-id");
   const invoiceDate = document.querySelector(".invoice--date");
-  const itemPrice = document.querySelectorAll(".item-price");
+  // const itemPrice = document.querySelectorAll(".item-price");
   const itemTotal = document.querySelector(".item-total");
   const total = document.querySelector(".total");
   const printbtn = document.querySelector(".invoice-button--2");
+  const invoiceItem = document.getElementById('item')
+  const invoicePrice = document.getElementById('price')
+  const Idee = document.getElementById('invoiceId')
+  const invoiceAmmount = document.getElementById('amount')
+  const invoiceTotal = document.getElementById('total')
   const tbody = table.getElementsByTagName("tbody")[0];
   const getuserId = localStorage.getItem("user");
   const userId = JSON.parse(getuserId);
@@ -413,15 +398,9 @@ nameOfUser.textContent = userId.name
     cell2 = newRow.insertCell(1);
     cell2.innerHTML = data.items;
     cell3 = newRow.insertCell(2);
-    // cell3.innerHTML = new Date(data.time).toDateString() +" "+
-    //     new Date(data.time).toLocaleTimeString([], {
-    //               hour: "numeric",
-    //               minute: "2-digit",
-    //             });
-    // cell4 = newRow.insertCell(3);
     cell3.innerHTML = data.price;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = `<button onClick="showInvoiceReceipt()" class="invoice--generate"> generate </button`;
+    cell4.innerHTML = `<button onClick="showInvoiceReceipt('${data.items}','${data.price}', '${data.id}','${data.time}')" class="invoice--generate"> generate </button`;
     cell5 = newRow.insertCell(4);
     cell5.innerHTML = data.id;
   }
@@ -469,7 +448,18 @@ nameOfUser.textContent = userId.name
   //   return id;
   // }
 
-  function showInvoiceReceipt() {
+  function showInvoiceReceipt(items,price,id,time) {
+    const date = new Date(time).toLocaleString('default', { 
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric'
+});
+  invoicePrice.innerHTML = price
+  invoiceAmmount.innerHTML = price
+  invoiceItem.innerHTML = items
+  invoiceTotal.innerHTML = price
+  Idee.innerHTML =  id
+  invoiceDate.textContent = date;
   invoiceReceipt.classList.add("show--invoice-receipt");
 }
 

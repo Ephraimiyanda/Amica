@@ -438,6 +438,14 @@ main {
   position: relative;
   text-align: center;
 }
+.invoiceId{
+  margin-bottom: 30px;
+}
+.amica{
+  margin-top: 2px;
+  color: #0b1682;
+  font-family: sans-serif;
+}
 .profile-input {
   width: 3rem;
   border-radius: 50%;
@@ -501,6 +509,9 @@ table * th {
   overflow: auto;
   width: 90%;
   margin: 0px;
+}
+#invoiceId{
+  color: #555555;
 }
 .table--body::-webkit-scrollbar {
   width: 0.2rem;
@@ -802,8 +813,7 @@ input[type="radio"] {
 }
 @media screen and (max-width: 500px) {
 .invoice-box{
-  width: 70%;
-  /* background-color: #000000; */
+  width: 60%;
   padding: 0px;
 }
 
