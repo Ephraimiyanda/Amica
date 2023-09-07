@@ -228,17 +228,18 @@
             </td>
             <td>
               <div class="profile-insert">
-                <input type="file" id="file" accept="image/jpeg, image/png, image/jpg">
                 <label for="file">
-                  <div class="signature-input">insert your signature  here</div>
-                  <div class="profile--top">
+                  <div class="signature-input" >Seller Name</div>
+                  <p id="sellerName" class="seller"></p>
+                  <!-- <div class="profile--top"> -->
                   </div>
                 </label>
             </td>
           </tr>
         </table>
         <div class="invoice-buttons"><button class="invoice-button invoice-button--1"
-            data-download="invoice--table">Download</button><button
+            data-download="invoice--table">Download</button>
+            <button
             class="invoice-button invoice-button--2">print</button></div>
       </div>
 
@@ -311,6 +312,7 @@
   const total = document.querySelector(".total");
   const printbtn = document.querySelector(".invoice-button--2");
   const invoiceItem = document.getElementById('item')
+  const invoiceName = document.getElementById('sellerName')
   const invoicePrice = document.getElementById('price')
   const Idee = document.getElementById('invoiceId')
   const invoiceAmmount = document.getElementById('amount')
@@ -460,6 +462,7 @@ nameOfUser.textContent = userId.name
   invoiceTotal.innerHTML = price
   Idee.innerHTML =  id
   invoiceDate.textContent = date;
+  invoiceName.innerHTML = userId.name
   invoiceReceipt.classList.add("show--invoice-receipt");
 }
 
@@ -563,15 +566,28 @@ invoiceReceiptClose.addEventListener("click", () => {
 
   // print
   printbtn.addEventListener("click", printInvoice);
-  function printInvoice() {
-    var invoiceBox = document.getElementById("invoice--table");
-    var printWindow = window.open("", "", "height=500,width=800");
-    printWindow.document.write("<head><title>Print Invoice</title></head>");
-    printWindow.document.write(invoiceBox.innerHTML);
 
-    printWindow.document.close();
-    printWindow.print();
-  }
+  function printInvoice() {
+  let invoiceBox = document.getElementById("invoice--table");
+  let printWindow = window.open("", "", "height=100%,width=100%");
+  printWindow.document.write("<head><title>Print Invoice</title></head>");
+  // printWindow.document.write("<style>body { margin: 0; }</style>"); // Add CSS to remove margins
+
+  // Add CSS to style the invoice
+  printWindow.document.write("<style>");
+  printWindow.document.write("@page { size: auto; margin: 0; }");
+  printWindow.document.write("html, body { height: 100vh; width: 100%; }");
+  printWindow.document.write("body { font-family: Roboto, sans-serif");
+  printWindow.document.write(".title { /*margin-top:auto */ }");
+  printWindow.document.write(".invoiceId {/*margin-right:auto; display:flex;*/}")
+  printWindow.document.write("</style>");
+
+  printWindow.document.write(invoiceBox.innerHTML);
+  printWindow.document.close();
+  printWindow.print();
+}
+
+
   // Fetch data from the URL and populate the table
   fetch(`https://amica-a.onrender.com/invoices/${userId._id}/all`)
     .then((response) => response.json())
