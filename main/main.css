@@ -1,5 +1,6 @@
 /* variable */
 /* reset */
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -444,7 +445,7 @@ main {
 .amica{
   margin-top: 2px;
   color: #0b1682;
-  font-family: sans-serif;
+  font-family: 'Cedarville Cursive',sans-serif;
 }
 .profile-input {
   width: 3rem;
