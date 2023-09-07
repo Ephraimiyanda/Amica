@@ -813,7 +813,7 @@ input[type="radio"] {
 }
 @media screen and (max-width: 500px) {
 .invoice-box{
-  width: 60%;
+  width: 70%;
   padding: 0px;
 }
 
