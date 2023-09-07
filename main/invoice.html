@@ -162,7 +162,7 @@
                   <td>
                     <div class="invoiceId">
                       <h3 >Invoice #: </h3>
-                      <span class="invoice-id"id="invoiceId">hhhh</span><br />
+                      <span class="invoice-id"id="invoiceId"></span><br />
                     </div>
                     <h3 id="date">Created date:</h3> <span class="invoice--date"></span><br />
 
@@ -174,25 +174,25 @@
 
           <tr class="information">
             <td colspan="2">
-              <table>
+              <table class="location">
                 <tr>
                   <td>
                     <h3>location of store </h3>
-                    <p contenteditable="true"> click to edit</p>
+                    <p > Online vendor</p>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
-
-          <tr class="heading">
-            <td>Payment Method</td>
-
-            <td>Amount</td>
-          </tr>
-
+          <div class="headerIn">
+            <tr class="heading">
+              <td >Payment Method</td>
+            
+              <td>Amount</td>
+            </tr>
+          </div>
           <tr class="details">
-            <td><select name="Payment" id="payment">
+            <td><select name="Payment" id="payment" class="no-select">
                 <option value="check">check</option>
                 <option value="cash" selected>cash</option>
                 <option value="transfer">transfer</option>
@@ -207,29 +207,31 @@
             <td>Price</td>
           </tr>
           <tr class="item">
-            <td><p class="item-input" id="item"></p>
+            <td><p class="item-input" id="item"> item</p>
             </td>
 
-            <td><p class="item-price" id="price"></p></td>
+            <td><p class="item-price" id="price">price</p></td>
           </tr>
 
           <tr class="total">
             <td></td>
-
-            <td> <p class="total">Total:</p>
-              <p class="item-total" id="total"></p>
-            </td>
-
+              <div>
+                <td> <p class="total">Total:</p>
+                  <p class="item-total" id="total"></p>
+                </td>
+              </div>
           </tr>
           <tr>
+            <div>   
+              <td>
+                <p  class="total">Company signature:</p>
+                <span class="amica">Amica Innovations</span>
+              </td>
+            </div>
             <td>
-              <p>company signature:</p>
-              <span class="amica">Amica Innovations</span>
-            </td>
-            <td>
-              <div class="profile-insert">
+              <div class="profile-insert ">
                 <label for="file">
-                  <div class="signature-input" >Seller Name</div>
+                  <div class="signature-input total" >Seller Name</div>
                   <p id="sellerName" class="seller"></p>
                   <!-- <div class="profile--top"> -->
                   </div>
@@ -569,23 +571,33 @@ invoiceReceiptClose.addEventListener("click", () => {
 
   function printInvoice() {
   let invoiceBox = document.getElementById("invoice--table");
-  let printWindow = window.open("", "", "height=100%,width=100%");
-  printWindow.document.write("<head><title>Print Invoice</title></head>");
-  // printWindow.document.write("<style>body { margin: 0; }</style>"); // Add CSS to remove margins
+  let printWindow = window.open("", "", "height:50vh;width:50vw;");
+  printWindow.document.write("<head><title>Print Invoice</title>");
+  printWindow.document.write("</head>");
 
-  // Add CSS to style the invoice
-  printWindow.document.write("<style>");
-  printWindow.document.write("@page { size: auto; margin: 0; }");
-  printWindow.document.write("html, body { height: 100vh; width: 100%; }");
-  printWindow.document.write("body { font-family: Roboto, sans-serif");
-  printWindow.document.write(".title { /*margin-top:auto */ }");
-  printWindow.document.write(".invoiceId {/*margin-right:auto; display:flex;*/}")
-  printWindow.document.write("</style>");
+  printWindow.document.write("<style @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');>");
+printWindow.document.write("html, body { height: 100vh; width: 100%; }");
+printWindow.document.write("img {margin-top:auto }");
+printWindow.document.write("div { width:fit-content; }");
+printWindow.document.write("#companee {background-color:black;display:flex; }");
+printWindow.document.write(".amica { color:#0b1682; width:fit-content;  font-family: 'Cedarville Cursive',sans-serif;}");
+printWindow.document.write("#sellerName {color: rgb(188, 87, 10); width:fit-content;  font-family: 'Cedarville Cursive',sans-serif;}");
+printWindow.document.write(".invoiceId { /*text-align:right; display:flex; flex-direction:column; background-color:black;*/ }");
+printWindow.document.write(" table { width: 100%; line-height: inherit; text-align: left;  padding: 15px; }");
+printWindow.document.write(" table p {padding:4px; margin-top:2px}");
+printWindow.document.write(" .location {background:#fff; width:60%; text-align:center;}");
+printWindow.document.write(" .details { padding-bottom: 20px; }");
+printWindow.document.write(".total{ border-top: 2px solid #eee; font-weight: bold; }");
+printWindow.document.write(".invoiceId{ margin-bottom: 30px;}");
+printWindow.document.write("#payment { user-select: none;}");
+printWindow.document.write("</style>");
+
 
   printWindow.document.write(invoiceBox.innerHTML);
   printWindow.document.close();
   printWindow.print();
 }
+
 
 
   // Fetch data from the URL and populate the table

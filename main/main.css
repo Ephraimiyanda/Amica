@@ -434,6 +434,15 @@ main {
   display: block;
   position: fixed;
 }
+.no-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: default;
+}
 .profile-insert {
   position: relative;
   text-align: center;
@@ -629,11 +638,6 @@ label.validation-error {
   border-top: 2px solid #eee;
   font-weight: bold;
 }
-.item-input,
-.item-price {
-  outline: none;
-  border: none;
-}
 .invoice-buttons {
   display: flex;
   justify-content: space-evenly;
@@ -800,6 +804,10 @@ input[type="radio"] {
     right: 12%;
     top: 45%;
     cursor: pointer;
+  }
+  .invoice-box{
+    width: 30%;
+    padding: 0px;
   }
 }
 
