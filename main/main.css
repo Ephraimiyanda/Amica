@@ -727,7 +727,6 @@ input[type="radio"] {
     height: 100px;
     gap: 15px;
   }
-
   main {
     grid-column: 2/3;
     grid-row: 2/3;
@@ -773,7 +772,6 @@ input[type="radio"] {
     display: block;
     text-align: right;
   }
-
   .invoice-box table tr.information table td {
     width: 100%;
     display: block;
@@ -801,4 +799,12 @@ input[type="radio"] {
     top: 45%;
     cursor: pointer;
   }
+}
+@media screen and (max-width: 500px) {
+.invoice-box{
+  width: 70%;
+  /* background-color: #000000; */
+  padding: 0px;
+}
+
 }
