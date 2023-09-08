@@ -177,12 +177,15 @@ input[type="checkbox"] {
 /* warning */
 .warning {
   color: rgb(196, 8, 8);
-  background-color: rgb(252, 199, 199);
-  font-size: 0.8rem;
+  /* background-color: rgb(252, 199, 199); */
+  font-size: 1rem;
+  font-family: sans-serif;
+  font-weight: 700;
   margin: 1px 0;
+  margin: auto;
   padding: 0.1rem 1rem;
   display: none;
-  border: 1px solid rgb(196, 8, 8);
+  /* border: 1px solid rgb(196, 8, 8); */
 }
 
 /****************************** swiper *****************************/
