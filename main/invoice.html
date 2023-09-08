@@ -183,14 +183,13 @@
                 </tr>
               </table>
             </td>
-          </tr>
-          <div class="headerIn">
-            <tr class="heading">
-              <td >Payment Method</td>
             
-              <td>Amount</td>
-            </tr>
-          </div>
+          </tr>
+          <tr class="heading">
+                
+                  <td > <p>Payment Method</p></td>
+                 <td><p >Amount</p></td>  
+              </tr>
           <tr class="details">
             <td><select name="Payment" id="payment" class="no-select">
                 <option value="check">check</option>
@@ -198,19 +197,19 @@
                 <option value="transfer">transfer</option>
               </select></td>
 
-            <td contenteditable="true" id="amount">1000</td>
+            <td id="amount"><h4>1000</h4></td>
           </tr>
 
           <tr class="heading">
-            <td>Item</td>
+            <td><p>Item</p></td>
 
-            <td>Price</td>
+            <td><p>Price</p></td>
           </tr>
           <tr class="item">
             <td><p class="item-input" id="item"> item</p>
             </td>
 
-            <td><p class="item-price" id="price">price</p></td>
+            <td><p class="item-price" id="price"></p></td>
           </tr>
 
           <tr class="total">
@@ -587,7 +586,10 @@ printWindow.document.write(" table { width: 100%; line-height: inherit; text-ali
 printWindow.document.write(" table p {padding:4px; margin-top:2px}");
 printWindow.document.write(" .location {background:#fff; width:60%; text-align:center;}");
 printWindow.document.write(" .details { padding-bottom: 20px; }");
+printWindow.document.write(".no-select { appearance: none;webkit-appearance: none; background: transparent; outline: none; border: none; ")
 printWindow.document.write(".total{ border-top: 2px solid #eee; font-weight: bold; }");
+printWindow.document.write(".paymentHeader p{ background-color:blue; }");
+
 printWindow.document.write(".invoiceId{ margin-bottom: 30px;}");
 printWindow.document.write("#payment { user-select: none;}");
 printWindow.document.write("</style>");
