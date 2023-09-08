@@ -1,5 +1,6 @@
 /* variable */
 /* reset */
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +21,6 @@ ul li {
 }
 body {
   font-family: "Roboto", sans-serif;
-
   height: 100vh;
 }
 
@@ -434,9 +434,31 @@ main {
   display: block;
   position: fixed;
 }
+.no-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: default;
+}
 .profile-insert {
   position: relative;
   text-align: center;
+}
+.invoiceId{
+  margin-bottom: 30px;
+}
+.amica{
+  margin-top: 2px;
+  color: #0b1682;
+  font-family: 'Cedarville Cursive',sans-serif;
+}
+.seller{
+  margin-top: 2px;
+  color: rgb(188, 87, 10);
+  font-family: 'Cedarville Cursive',sans-serif;
 }
 .profile-input {
   width: 3rem;
@@ -501,6 +523,9 @@ table * th {
   overflow: auto;
   width: 90%;
   margin: 0px;
+}
+#invoiceId{
+  color: #555555;
 }
 .table--body::-webkit-scrollbar {
   width: 0.2rem;
@@ -613,11 +638,6 @@ label.validation-error {
   border-top: 2px solid #eee;
   font-weight: bold;
 }
-.item-input,
-.item-price {
-  outline: none;
-  border: none;
-}
 .invoice-buttons {
   display: flex;
   justify-content: space-evenly;
@@ -727,7 +747,6 @@ input[type="radio"] {
     height: 100px;
     gap: 15px;
   }
-
   main {
     grid-column: 2/3;
     grid-row: 2/3;
@@ -773,7 +792,6 @@ input[type="radio"] {
     display: block;
     text-align: right;
   }
-
   .invoice-box table tr.information table td {
     width: 100%;
     display: block;
@@ -786,6 +804,10 @@ input[type="radio"] {
     right: 12%;
     top: 45%;
     cursor: pointer;
+  }
+  .invoice-box{
+    width: 30%;
+    padding: 0px;
   }
 }
 
@@ -801,4 +823,12 @@ input[type="radio"] {
     top: 45%;
     cursor: pointer;
   }
+}
+@media screen and (max-width: 500px) {
+.invoice-box{
+  z-index: 999;
+  width: 90%;
+  padding: 0px;
+}
+
 }

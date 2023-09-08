@@ -160,9 +160,11 @@
 
 
                   <td>
-                    <h3>Invoice #:</h3>
-                    <span class="invoice-id"></span><br />
-                    <h3>Created: date:</h3> <span class="invoice--date"></span><br />
+                    <div class="invoiceId">
+                      <h3 >Invoice #: </h3>
+                      <span class="invoice-id"id="invoiceId"></span><br />
+                    </div>
+                    <h3 id="date">Created date:</h3> <span class="invoice--date"></span><br />
 
                   </td>
                 </tr>
@@ -172,94 +174,73 @@
 
           <tr class="information">
             <td colspan="2">
-              <table>
+              <table class="location">
                 <tr>
                   <td>
                     <h3>location of store </h3>
-                    <p contenteditable="true"> click to edit</p>
-
+                    <p > Online vendor</p>
                   </td>
-
-                  <td>
-                    <h3>phone number </h3>
-                    <p contenteditable="true"> click to edit</p>
                 </tr>
               </table>
             </td>
+            
           </tr>
-
           <tr class="heading">
-            <td>Payment Method</td>
-
-            <td>Amount</td>
-          </tr>
-
+                
+                  <td > <p>Payment Method</p></td>
+                 <td><p >Amount</p></td>  
+              </tr>
           <tr class="details">
-            <td><select name="Payment" id="payment">
+            <td><select name="Payment" id="payment" class="no-select">
                 <option value="check">check</option>
                 <option value="cash" selected>cash</option>
                 <option value="transfer">transfer</option>
               </select></td>
 
-            <td contenteditable="true">1000</td>
+            <td id="amount"><h4>1000</h4></td>
           </tr>
 
           <tr class="heading">
-            <td>Item</td>
+            <td><p>Item</p></td>
 
-            <td>Price</td>
-          </tr>
-
-          <tr class="item">
-            <td><input type="text" placeholder="items" class="item-input"></td>
-
-            <td><input type="number" placeholder="price" class="item-price"></td>
+            <td><p>Price</p></td>
           </tr>
           <tr class="item">
-            <td><input type="text" placeholder="items" class="item-input"></td>
+            <td><p class="item-input" id="item"> item</p>
+            </td>
 
-            <td><input type="number" placeholder="price" class="item-price"></td>
-          </tr>
-          <tr class="item">
-            <td><input type="text" placeholder="items" class="item-input"></td>
-
-            <td><input type="number" placeholder="price" class="item-price"></td>
-          </tr>
-          <tr class="item">
-            <td><input type="text" placeholder="items" class="item-input"></td>
-
-            <td><input type="number" placeholder="price" class="item-price"></td>
-          </tr>
-          <tr class="item">
-            <td><input type="text" placeholder="items" class="item-input"></td>
-
-            <td><input type="number" placeholder="price" class="item-price"></td>
+            <td><p class="item-price" id="price"></p></td>
           </tr>
 
           <tr class="total">
             <td></td>
-
-            <td> <button class="total">Total:</button>
-              <p class="item-total">item-total</p>
-            </td>
-
+              <div>
+                <td> <p class="total">Total:</p>
+                  <p class="item-total" id="total"></p>
+                </td>
+              </div>
           </tr>
           <tr>
-            <td>company signature:</td>
+            <div>   
+              <td>
+                <p  class="total">Company signature:</p>
+                <span class="amica">Amica Innovations</span>
+              </td>
+            </div>
             <td>
-              <div class="profile-insert">
-                <input type="file" id="file" accept="image/jpeg, image/png, image/jpg">
+              <div class="profile-insert ">
                 <label for="file">
-                  <div class="signature-input">insert your signature</div>
+                  <div class="signature-input total" >Seller Name</div>
+                  <p id="sellerName" class="seller"></p>
+                  <!-- <div class="profile--top"> -->
+                  </div>
                 </label>
-                <div class="profile--top">
-                  <img src="/images/download2.jfif" width="10rem" height="4rem" class="signature--pic profile--pic">
-                </div>
             </td>
           </tr>
         </table>
         <div class="invoice-buttons"><button class="invoice-button invoice-button--1"
-            data-download="invoice--table">Download</button><button
+            data-download="invoice--table">Download</button>
+            <button
             class="invoice-button invoice-button--2">print</button></div>
       </div>
 
@@ -271,7 +252,7 @@
         <input type="file" id="file" accept="image/jpeg, image/png, image/jpg">
         <label for="file"><img src="/images/icons8-cameras-48.png" alt="" class="profile-input"></label>
         <div class="profile--top">
-          <img src="/images/blank-profile-picture-973460_1280.webp" class="profile--pic">
+          <!-- <img src="/images/blank-profile-picture-973460_1280.webp" class="profile--pic"> -->
         </div>
         <div>
           <h3 class="profile--username ">Deborah Allen</h3>
@@ -315,6 +296,7 @@
 
    <script>
   // GET ELEMENTS
+  
   const nameOfUser = document.getElementById('name')
   const InvoiceAdd = document.querySelector(".invoice--popup");
   const invoiceBtn = document.querySelector(".add--invoice");
@@ -326,10 +308,16 @@
   const invoiceReceipt = document.querySelector(".invoice-box");
   const invoiceId = document.querySelector(".invoice-id");
   const invoiceDate = document.querySelector(".invoice--date");
-  const itemPrice = document.querySelectorAll(".item-price");
+  // const itemPrice = document.querySelectorAll(".item-price");
   const itemTotal = document.querySelector(".item-total");
   const total = document.querySelector(".total");
   const printbtn = document.querySelector(".invoice-button--2");
+  const invoiceItem = document.getElementById('item')
+  const invoiceName = document.getElementById('sellerName')
+  const invoicePrice = document.getElementById('price')
+  const Idee = document.getElementById('invoiceId')
+  const invoiceAmmount = document.getElementById('amount')
+  const invoiceTotal = document.getElementById('total')
   const tbody = table.getElementsByTagName("tbody")[0];
   const getuserId = localStorage.getItem("user");
   const userId = JSON.parse(getuserId);
@@ -413,15 +401,9 @@ nameOfUser.textContent = userId.name
     cell2 = newRow.insertCell(1);
     cell2.innerHTML = data.items;
     cell3 = newRow.insertCell(2);
-    // cell3.innerHTML = new Date(data.time).toDateString() +" "+
-    //     new Date(data.time).toLocaleTimeString([], {
-    //               hour: "numeric",
-    //               minute: "2-digit",
-    //             });
-    // cell4 = newRow.insertCell(3);
     cell3.innerHTML = data.price;
     cell4 = newRow.insertCell(3);
-    cell4.innerHTML = `<button onClick="showInvoiceReceipt()" class="invoice--generate"> generate </button`;
+    cell4.innerHTML = `<button onClick="showInvoiceReceipt('${data.items}','${data.price}', '${data.id}','${data.time}')" class="invoice--generate"> generate </button`;
     cell5 = newRow.insertCell(4);
     cell5.innerHTML = data.id;
   }
@@ -469,7 +451,19 @@ nameOfUser.textContent = userId.name
   //   return id;
   // }
 
-  function showInvoiceReceipt() {
+  function showInvoiceReceipt(items,price,id,time) {
+    const date = new Date(time).toLocaleString('default', { 
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric'
+});
+  invoicePrice.innerHTML = price
+  invoiceAmmount.innerHTML = price
+  invoiceItem.innerHTML = items
+  invoiceTotal.innerHTML = price
+  Idee.innerHTML =  id
+  invoiceDate.textContent = date;
+  invoiceName.innerHTML = userId.name
   invoiceReceipt.classList.add("show--invoice-receipt");
 }
 
@@ -573,15 +567,41 @@ invoiceReceiptClose.addEventListener("click", () => {
 
   // print
   printbtn.addEventListener("click", printInvoice);
-  function printInvoice() {
-    var invoiceBox = document.getElementById("invoice--table");
-    var printWindow = window.open("", "", "height=500,width=800");
-    printWindow.document.write("<head><title>Print Invoice</title></head>");
-    printWindow.document.write(invoiceBox.innerHTML);
 
-    printWindow.document.close();
-    printWindow.print();
-  }
+  function printInvoice() {
+  let invoiceBox = document.getElementById("invoice--table");
+  let printWindow = window.open("", "", "height:50vh;width:50vw;");
+  printWindow.document.write("<head><title>Print Invoice</title>");
+  printWindow.document.write("</head>");
+
+  printWindow.document.write("<style @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');>");
+printWindow.document.write("html, body { height: 100vh; width: 100%; }");
+printWindow.document.write("img {margin-top:auto }");
+printWindow.document.write("div { width:fit-content; }");
+printWindow.document.write("#companee {background-color:black;display:flex; }");
+printWindow.document.write(".amica { color:#0b1682; width:fit-content;  font-family: 'Cedarville Cursive',sans-serif;}");
+printWindow.document.write("#sellerName {color: rgb(188, 87, 10); width:fit-content;  font-family: 'Cedarville Cursive',sans-serif;}");
+printWindow.document.write(".invoiceId { /*text-align:right; display:flex; flex-direction:column; background-color:black;*/ }");
+printWindow.document.write(" table { width: 100%; line-height: inherit; text-align: left;  padding: 15px; }");
+printWindow.document.write(" table p {padding:4px; margin-top:2px}");
+printWindow.document.write(" .location {background:#fff; width:60%; text-align:center;}");
+printWindow.document.write(" .details { padding-bottom: 20px; }");
+printWindow.document.write(".no-select { appearance: none;webkit-appearance: none; background: transparent; outline: none; border: none; ")
+printWindow.document.write(".total{ border-top: 2px solid #eee; font-weight: bold; }");
+printWindow.document.write(".paymentHeader p{ background-color:blue; }");
+
+printWindow.document.write(".invoiceId{ margin-bottom: 30px;}");
+printWindow.document.write("#payment { user-select: none;}");
+printWindow.document.write("</style>");
+
+
+  printWindow.document.write(invoiceBox.innerHTML);
+  printWindow.document.close();
+  printWindow.print();
+}
+
+
+
   // Fetch data from the URL and populate the table
   fetch(`https://amica-a.onrender.com/invoices/${userId._id}/all`)
     .then((response) => response.json())
