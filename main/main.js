@@ -9,6 +9,13 @@ const stockAmount = document.getElementById("stock-amount");
 const stockPrice = document.getElementById("stock-price");
 const stockName = document.querySelector(".stock-name");
 const userId=localStorage.getItem("user")
+const notificationName = document.getElementById('name')
+
+const username = JSON.parse(userId);
+notificationName.innerHTML = username.name
+
+
+
 
 addItem.addEventListener("click", () => {
   popup.classList.add("show--popup");

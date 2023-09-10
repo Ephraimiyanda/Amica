@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   profileName.textContent = userId.name;
   profileEmail.textContent = userId.email;
   const image = localStorage.getItem("profileImage");
-  // userImage.src = image;
+  userImage.src = image;
   toggleTImage.src = image;
   notificationImage.src = image;
 });
