@@ -5,6 +5,16 @@ const preloader = document.querySelector(".preloader");
 const WarningEmail = document.querySelector(".warining--email");
 const WarningPassword = document.querySelector(".warning--password");
 
+// New Loader
+const loginLoader = document.querySelector('.loaderWrap');
+
+function showLoader() {
+  loginLoader.style.display = 'block';
+}
+
+function hideLoader() {
+  loginLoader.style.display = 'none';
+}
 
 window.addEventListener("load", function () {
   preloader.classList.add("hide-preloader");
@@ -35,6 +45,8 @@ const login = async () => {
     WarningPassword.style.display = "none";
   }
 
+  showLoader();
+
   try {
     const response = await fetch("https://amica-a.onrender.com/users/login", {
       method: "POST",
@@ -54,6 +66,7 @@ const login = async () => {
         "user",
         JSON.stringify({ name: data.name, _id: data._id, email: data.email })
       );
+      hideLoader();
 
       const queryParams = new URLSearchParams({
         message: `User created: ${data.name}`,
@@ -65,10 +78,12 @@ const login = async () => {
       console.log(data);
       WarningPassword.style.display = "block";
       WarningPassword.textContent = data;
+      hideLoader();
     }
   } catch (error) {
     console.error(error);
     WarningPassword.style.display = "block";
     WarningPassword.textContent = "Connect to the internet and try again";
+    hideLoader();
   }
 };
