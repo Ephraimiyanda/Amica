@@ -9,8 +9,14 @@ const preloader = document.querySelector(".preloader");
 window.addEventListener("load", function () {
   preloader.classList.add("hide-preloader");
 });
+
 button.addEventListener("click", (e) => {
   e.preventDefault();
+  finishSignUp();
+});
+
+const finishSignUp = async () => {
+  console.log('button clicked')
   const name = userName.value.trim();
   const email = userEmail.value.trim();
   const password = userPassword.value.trim();
@@ -39,26 +45,42 @@ button.addEventListener("click", (e) => {
   } else {
     warning.style.display = "none";
   }
+  try {
+    const response = await fetch("https://amica-a.onrender.com/users", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email: userEmail.value,
+        password: userPassword.value,
+        phone: userPhone.value,
+        name: userName.value,
+      }),
+    });
 
-  fetch("https://amica-a.onrender.com/users", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify({
-      email: userEmail.value,
-      password: userPassword.value,
-      phone: userPhone.value,
-      name: userName.value,
-    }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
+    let data = await response.json();
+
+    if (response.ok) {
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: data.name, _id: data._id, email: data.email })
+      );
+
+      const queryParams = new URLSearchParams({
+        message: `User created: ${data.name}`,
+        email: email,
+      }).toString();
+
+      window.location.href = `/main/dashboard.html?${queryParams}`;
+    } else {
       console.log(data);
-
-      window.location.href = `/signin.html`;
-    })
-
-    .catch((err) => console.log(err));
-  console.log("clicked");
-});
+      warning.style.display = "block";
+      warning.textContent = data;
+    }
+  } catch (error) {
+    console.error(error);
+    warning.style.display = "block";
+    warning.textContent = "Connect to the internet and try again";
+  }
+};
