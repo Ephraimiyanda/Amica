@@ -404,6 +404,35 @@ p {
 .login{
   width: 100%;
 }
+
+.loaderWrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: hsla(0, 4%, 15%, 0.75);
+  z-index: 700;
+  display: none;
+}
+
+.loginLoader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  position: absolute;
+  top: 45%;
+  right: 47.5%;
+  /* transform: translateX(-40%); */
+  z-index: 999;
+}
+
+@keyframes spin {
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
+}
 @media screen and (min-width: 25rem) {
   .login {
     padding: 1.5rem;
